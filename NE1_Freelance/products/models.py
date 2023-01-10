@@ -6,3 +6,5 @@ class Product(models.Model):
     description = models.TextField(default = 'Details about this product...')
     price = models.TextField(default = 'Cost...')
     summary = models.TextField(default='Summary of description...')
+
+f
