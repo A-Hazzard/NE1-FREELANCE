@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    print(args, kwargs)
-    print(request, 'is what you requested')
-    return HttpResponse("<h1>Hello World</h1>") 
+    print(args, kwargs, ' these are the arguments returned from request')
+
+    return render(request, "index.html", {})
 
 def contact_view(request, *args, **kwargs):
     print(args, kwargs)
-    print(request, 'is what you requested')
-    return HttpResponse("<h1>Contact page</h2>")
+    print(args, kwargs, ' these are the arguments returned from request')
+
+    #return HttpResponse("<h1>Contact page</h2>")    

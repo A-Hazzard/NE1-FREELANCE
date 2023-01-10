@@ -1,0 +1,12 @@
+
+{% block content %}
+<h1>Item</h1>
+<h2>Title: {{ title }}</h2>
+<h3>Price: 
+    {% if price >= 50 %} 
+        {{ price }}
+    {%else%}
+        Affordable price
+    {% endif%}
+<h3>
+{% endblock %}
