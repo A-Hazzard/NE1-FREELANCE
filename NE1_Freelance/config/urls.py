@@ -22,7 +22,9 @@ from pages.views import home_view, contact_view
 from products.views import (
     dynamic_lookup_view, 
     delete_product_view,
-    product_create_view
+    product_create_view,
+    deleteProducts_view,
+    deleteProducts
 )
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='index.html')),
@@ -34,6 +36,10 @@ urlpatterns = [
     #path('contact/', contact_view),
     path('products/<int:id>', dynamic_lookup_view, name='product'),
     path('products/<int:id>/delete/', delete_product_view, name='deleteProduct'),
-    path('create/', product_create_view)
+    
+    path('create/', product_create_view),
 
+    #clear the database url
+    path('cleartable/', deleteProducts_view),
+    path('cleared/', deleteProducts)
 ]

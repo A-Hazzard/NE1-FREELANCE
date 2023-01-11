@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 .header {
+  z-index: 1;
   height: 9vh;
   position: relative;
   padding: 1.5% 0 0 5%;
@@ -22,6 +23,11 @@
   font-size: 1.3rem;
   display: inline;
   margin-left: 5%;
+  cursor: pointer;
+}
+.header .navBar ul li a {
+  text-decoration: none;
+  color: white;
 }
 .header .navBar ul .dashboard {
   margin-left: 10%;

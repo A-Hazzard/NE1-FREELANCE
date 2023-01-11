@@ -19,22 +19,32 @@ def dynamic_lookup_view(request, id):
     return render(request, 'products/detail.html', context)
 
 def delete_product_view(request, id):
-    product = get_object_or_404(Product, id = id)
 
-    if request.method == 'POST':
-        product.delete()
-        return redirect('../../')
+    try:
+        product = get_object_or_404(Product, id = id)
 
-    context = {
-        "product": product
-    }
+        if request.method == 'POST':
+            product.delete()
+            return redirect('../../')
 
-    return render(request, 'products/product_delete.html', context)
+        context = {
+            "product": product
+        }
+        return render(request, 'products/product_delete.html', context)
+
+    except Product.DoesNotExist:
+        raise Http404
+
+def deleteProducts_view(request):
+
+    return render(request, 'products/delAllProducts.html', {})
 
 
+def deleteProducts(request):
 
+    Product.objects.all().delete()
 
-
+    return render(request, 'products/clearedDb.html', {})
 
 
 # def product_detail_view(request):
