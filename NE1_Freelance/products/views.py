@@ -1,16 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
+
 from .models import Product
 from .forms import ProductForm, RawProductForm
 # Create your views here.
 
-def dynamic_lookup_view(request, my_id):
-    ob = Product.objects.get(id = my_id)
+def dynamic_lookup_view(request, id):
 
+    try:
+        product = Product.objects.get(id = id)
+    except Product.DoesNotExist:
+        raise Http404
+        
     context = {
-        "object":ob
+        "product":product
     }
+
     return render(request, 'products/detail.html', context)
 
+def delete_product_view(request, id):
+    product = get_object_or_404(Product, id = id)
+
+    if request.method == 'POST':
+        product.delete()
+        return redirect('../../')
+
+    context = {
+        "product": product
+    }
+
+    return render(request, 'products/product_delete.html', context)
 
 
 
@@ -26,24 +45,24 @@ def dynamic_lookup_view(request, my_id):
 #     }
 #     return render(request, 'product_detail.html', context)
 
-# def product_create_view(request):
-#     if request.method == "POST":
-#         form = RawProductForm(request.POST)
-#         if form.is_valid():
-#             print(form.cleaned_data)
-#             createProduct = Product.objects.create(**form.cleaned_data)
-#             product = Product.objects.get(id= 5)
-#             print("The first product is: ", product.title)
-#         else:
-#             print(form.errors)
-#     else:
-#         form = RawProductForm(request.GET)
+def product_create_view(request):
+    if request.method == "POST":
+        form = RawProductForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            createProduct = Product.objects.create(**form.cleaned_data)
+            product = Product.objects.get(id= createProduct.id)
+            print("Product: ", product.id)
+        else:
+            print(form.errors)
+    else:
+        form = RawProductForm(request.GET)
 
-#     context = {
-#         "form": form
-#     }
+    context = {
+        "form": form
+    }
     
-#     return render(request, 'products/product_create.html', context)
+    return render(request, 'products/product_create.html', context)
 
 
 # def product_create_view(request):
