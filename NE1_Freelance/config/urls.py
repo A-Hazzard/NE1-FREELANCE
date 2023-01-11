@@ -18,17 +18,19 @@ from django.views.generic import TemplateView
 from django.urls import path
 
 from pages.views import home_view, contact_view
-from products.views import product_detail_view,  product_create_view
+# from products.views import product_detail_view,  product_create_view
+from products.views import dynamic_lookup_view
+
 
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
 
-    path('', home_view, name = 'home'),
-    path('home/', home_view, name = 'home'),
+    path('', home_view),
+    path('home/', home_view),
 
-    path('contact/', contact_view, name = 'contact'),
-    path('product/', product_detail_view, name = 'product'),
-    path('create/', product_create_view, name = 'createProduct')
+    #path('contact/', contact_view),
+    path('products/<int:my_id>', dynamic_lookup_view, name='product'),
+    #path('create/', product_create_view)
 
 ]

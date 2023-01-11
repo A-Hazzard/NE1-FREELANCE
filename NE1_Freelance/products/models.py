@@ -9,5 +9,5 @@ class Product(models.Model):
 
     summary = models.TextField(blank = False, null = False, max_length= 120)
 
-    featured = models.BooleanField(blank = False, null = False)
+    featured = models.BooleanField(blank = False, null = True)
 

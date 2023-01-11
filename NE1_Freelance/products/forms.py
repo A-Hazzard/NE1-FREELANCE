@@ -8,5 +8,11 @@ class ProductForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'price'
+            'price',
+            'featured'
         ]
+
+class RawProductForm(forms.Form):
+    title   = forms.CharField(required = True, widget=forms.TextInput(attrs={"placeholder": "Title..."}))
+    description = forms.CharField(required = True, widget = forms.TextInput(attrs={"placeholder":"Summary of the product..."}) )
+    price   = forms.DecimalField(required = True, widget = forms.NumberInput(attrs={"placeholder":"TTD"}))
