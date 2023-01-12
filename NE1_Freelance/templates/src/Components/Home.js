@@ -3,6 +3,7 @@ import $ from 'jquery';
 import HomeNavBar from './HomeNavBar';
 import bubbles from '../media/bubbles.png'
 import backgroundImg from '../media/backgroundImg.png';
+import './ContactUs';
 
 const Home = () => {
         // Add an event listener for the change event

@@ -1,6 +1,7 @@
 import '../style/homeNavbar.css';
 
 const NavBar = () => {
+    const link = './ContactUs';
 
 
     return ( 
@@ -15,7 +16,7 @@ const NavBar = () => {
                     <li><a href = "">Blogs</a></li>
                     <li><a href = "">About</a></li>
                     <li><a href = "/create">Pages</a></li>
-                    <li><a href = "">Contact</a></li>
+                    <li><a href = {link}>Contact</a></li>
                     <li className="dashboard">Dash Board</li>
                 </ul>
             </nav>
