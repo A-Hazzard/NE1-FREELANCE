@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+
 *{
     padding: 0;
     margin: 0;
 }
+html{
+    scroll-behavior: smooth;
 
+}
 body{
     overflow-x: hidden;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .top-banner {
     position: absolute;
@@ -15,19 +22,17 @@ body{
     .red-gradient {
         position: absolute;
         background: rgb(214,27,98);
-        background: linear-gradient(51deg, rgba(214,27,98,1) 0%, rgba(214,27,98,1) 10%, rgba(133,186,56,1) 89%, rgba(133,186,56,1) 100%);
-        width: 80%;
+        background: linear-gradient(51deg, rgba(214,27,98,1) 0%, rgba(214,27,98,1) 10%, rgba(133,186,56,1) 100%, rgba(133,186,56,1) 100%);
+        width: 100%;
         height: 30vh;
-        border-top-right-radius: 700px;
-        z-index: 1;
 
         .title {
             font-weight: 600px;
             font-family: Arial;
             font-size: 4rem;
             position: absolute;
-            top: 18%;
-            left: 22%;
+            top: 24.5%;
+            left: 17%;
             color: white;
         }
         .logo{
@@ -35,8 +40,8 @@ body{
             aspect-ratio: 1;
             object-fit: contain;
             position: absolute;
-            margin-top: -5.5%;
-            margin-left: 7%;
+            margin-top: -3.5%;
+            margin-left: 5%;
         }
         .search {
             position: absolute;
@@ -48,22 +53,18 @@ body{
             border-radius: 32px;
             border: none;
             padding-left: 2%;
+            outline: none;
+            font-size: 1.3rem;
         }
 
         .fa-magnifying-glass{
             font-size: 1.5rem;
             position: absolute;
-            margin-left: 30%;
-            margin-top: 11.5%;
+            margin-left: 24.5%;
+            margin-top: 9.4%;
         }
     }
 
-    .green-gradient {
-            background: #80c336;
-            width: 100vw;
-            height: 30vh;
-            position: absolute;
-    }
     
 }
 
@@ -71,7 +72,7 @@ body{
     margin-top: 14%;
     position: absolute;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 29%, rgba(232,232,232,1) 99%);
+background: linear-gradient(0deg, rgba(255,255,255,1) 75%, rgba(241,253,247,1) 100%);
     
     .flexible-services{
         position: relative;
@@ -121,5 +122,55 @@ body{
     
 
     
+    }
+
+    .reassurance-flex-box{
+        display: flex;
+        flex-wrap: nowrap;
+        background: rgb(237,255,246);
+background: linear-gradient(0deg, rgba(237,255,246,1) 76%, rgba(255,255,255,1) 100%);
+        padding-left: 10%;
+        padding-top: 10%;
+
+        .text{
+            width: 35%;
+
+            h3{
+                color: #404145;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 38px;
+            }
+
+            ul{
+                list-style-type: none;
+
+                .bold{
+                    color: #404145;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 25px;
+                    font-style: bold;
+                }
+
+                .info{
+                    color: #62646a;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 26px;
+                    font-style: bold;
+                }
+
+            }
+        }
+
+        .image-container{
+            padding-left: 5%;
+            padding-top: 2%;
+            width: 50%;
+            .image{
+                width: 100%;
+            }
+        }
     }
 }
