@@ -156,4 +156,32 @@ body {
 }
 .main-container .reassurance-flex-box .image-container .image {
   width: 100%;
+}
+.main-container .getStarted {
+  background-color: #3e7258;
+  padding-top: 5%;
+  padding-left: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 40vh;
+}
+.main-container .getStarted h5 {
+  font-size: 2rem;
+  color: white;
+}
+.main-container .getStarted .getStarted-btn {
+  padding: 3%;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  color: black;
+  background-color: white;
+}
+.main-container .getStarted .image {
+  overflow-y: hidden;
+  margin-top: -5%;
+  margin-left: 5%;
 }/*# sourceMappingURL=index.css.map */

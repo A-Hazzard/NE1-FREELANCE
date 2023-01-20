@@ -72,7 +72,7 @@ body{
     margin-top: 14%;
     position: absolute;
     background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,1) 75%, rgba(241,253,247,1) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 75%, rgba(241,253,247,1) 100%);
     
     .flexible-services{
         position: relative;
@@ -173,4 +173,37 @@ background: linear-gradient(0deg, rgba(237,255,246,1) 76%, rgba(255,255,255,1) 1
             }
         }
     }
+
+    .getStarted{
+        background-color: #3e7258;
+        padding-top: 5%;
+        padding-left: 10%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        display: flex;
+        flex-wrap: nowrap;
+        height: 40vh;
+
+        h5{
+            font-size: 2rem;
+            color: white;
+        }
+
+        .getStarted-btn{
+            padding: 3%;
+            border: none;
+            border-radius: .5rem;
+            font-size: 1.1rem;
+            color: black;
+            background-color: #ffff;
+        }
+
+        .image{
+            overflow-y: hidden;
+            margin-top: -5%;
+            margin-left: 5%;
+        }
+    }
+    
 }
