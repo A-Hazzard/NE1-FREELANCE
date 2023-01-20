@@ -11,17 +11,56 @@
 <body>
     <!--Banner used to search for jobs-->
     <div class="top-banner">
-        <div class="blue-curve">
+
+        <!--This is the red portion of the curve blending into green-->
+        <div class="red-gradient">
+
+            <!--Logo of the website-->
             <img class = "logo" src="images/logo.png" alt="logo">
-            <h1 class="title"><b>Freelance</b></h1>
+            <h1 class="title"><b>Freelance</b></h1> <!--Title of the website-->
             
+                <!--Search field-->
                 <input class="search" type="text" placeholder="Search for job..." /><i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="green-gradient"></div><!--This is the green portion of the curve on the right-->
     </div>
 
-        <div class="purple-curve"></div>
-        <div class="white">
+    <!--Main container to hold everything-->
+    <main class="main-container">
+
+        <!--flexbox container that displays 4 services-->
+        <div class="flexible-services">
+            <h2>Services</h2>
+        <div class="services">
+            <div class="service service1">
+                <p class="service-title">Build your brand</p> <span class="service-title-span">Logo Design</span>
+                <img class="service-img" src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png" alt="">
+            </div>
+            <div class="service service2">
+                <p class="service-title">Customize your site</p> <span class="service-title-span">WordPress</span>
+
+                <img class="service-img" src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png" alt="">
+
+            </div>
+            <div class="service service3">
+                <p class="service-title">Engage your audience</p> <span class="service-title-span">Voice Over</span>
+
+                <img class="service-img" src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png" alt="">
+
+            </div>
+            <div class="service service4">
+                <p class="service-title">Reach more customers</p> <span class="service-title-span">Social Media</span>
+
+                <img class="service-img" src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png" alt="">
+
+            </div>
         </div>
-    </div>
+        
+        </div>
+
+
+    </main>
     
 </body>
 </html>
