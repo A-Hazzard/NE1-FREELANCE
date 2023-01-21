@@ -26,6 +26,9 @@ body {
   width: 100%;
   height: 30vh;
 }
+.top-banner .red-gradient form .search-btn {
+  border: 1px solid;
+}
 .top-banner .red-gradient .title {
   font-weight: 600px;
   font-family: Arial;
@@ -57,11 +60,15 @@ body {
   outline: none;
   font-size: 1.3rem;
 }
-.top-banner .red-gradient .fa-magnifying-glass {
+.top-banner .red-gradient .fa-magnifying-glass, .top-banner .red-gradient .search-btn {
   font-size: 1.5rem;
   position: absolute;
   margin-left: 24.5%;
-  margin-top: 9.4%;
+  margin-top: 9%;
+  background-color: none;
+}
+.top-banner .red-gradient .search-btn {
+  border: none !important;
 }
 
 .main-container {
@@ -80,23 +87,35 @@ body {
   font-family: Arial;
   font-size: 2.5rem;
   margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 2.5%;
   height: 2%;
   display: inline-block;
 }
 .main-container .flexible-services .services {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100vw;
 }
 .main-container .flexible-services .services .service {
   display: inline-block;
   margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 2.5%;
   position: relative;
+  width: 20%;
+  height: 40vh;
+  cursor: pointer;
+  overflow: hidden;
 }
 .main-container .flexible-services .services .service .service-img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+.main-container .flexible-services .services .service .service-img:hover {
+  opacity: 80%;
+  transform: scale(1.1);
 }
 .main-container .flexible-services .services .service .service-title, .main-container .flexible-services .services .service .service-title-span {
   position: absolute;
@@ -105,15 +124,22 @@ body {
   font-family: Arial;
   margin-left: 5%;
   color: white;
+  text-shadow: 2px 1px 2px black;
 }
 .main-container .flexible-services .services .service .service-title {
-  margin-top: 5%;
+  margin-top: 65%;
   font-size: 1.3rem;
 }
 .main-container .flexible-services .services .service .service-title-span {
-  margin-top: 15%;
+  margin-top: 72%;
   font-size: 1.8rem;
   font-weight: bold;
+}
+.main-container .flexible-services .services .service #transportation-title {
+  margin-top: 55%;
+}
+.main-container .flexible-services .services .service #transportation-span {
+  margin-top: 72%;
 }
 .main-container .reassurance-flex-box {
   display: flex;
@@ -134,6 +160,9 @@ body {
 }
 .main-container .reassurance-flex-box .text ul {
   list-style-type: none;
+}
+.main-container .reassurance-flex-box .text ul .sub-heading {
+  margin-bottom: 2%;
 }
 .main-container .reassurance-flex-box .text ul .bold {
   color: #404145;
@@ -179,6 +208,11 @@ body {
   font-size: 1.1rem;
   color: black;
   background-color: white;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+.main-container .getStarted .getStarted-btn:hover {
+  transform: scale(1.1);
 }
 .main-container .getStarted .image {
   overflow-y: hidden;

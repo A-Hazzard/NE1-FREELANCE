@@ -26,6 +26,12 @@ body{
         width: 100%;
         height: 30vh;
 
+        form{
+            .search-btn{
+                border: 1px solid;
+            }
+        }
+
         .title {
             font-weight: 600px;
             font-family: Arial;
@@ -57,11 +63,16 @@ body{
             font-size: 1.3rem;
         }
 
-        .fa-magnifying-glass{
+        .fa-magnifying-glass, .search-btn{
             font-size: 1.5rem;
             position: absolute;
             margin-left: 24.5%;
-            margin-top: 9.4%;
+            margin-top: 9%;
+            background-color: none;
+        }
+
+        .search-btn{
+            border: none !important;
         }
     }
 
@@ -84,23 +95,36 @@ body{
             font-family: Arial;
             font-size: 2.5rem;
             margin-top: 2%;
-            margin-left: 5%;
+            margin-left: 2.5%;
             height: 2%;
             display: inline-block;
         }
     
         .services{
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             width: 100vw;
 
             .service{
                 display: inline-block;
                 margin-top: 2%;
-                margin-left: 5%;
+                margin-left: 2.5%;
                 position: relative;
+                width: 20%;
+                height: 40vh;
+                cursor: pointer;
+                overflow: hidden;
+
                 .service-img{
                     width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .service-img:hover{
+                        opacity: 80%;
+                        transform: scale(1.1);
                 }
 
                 .service-title, .service-title-span{
@@ -110,11 +134,16 @@ body{
                     font-family: Arial;
                     margin-left: 5%;
                     color: white;
+                    text-shadow: 2px 1px 2px black;
+                    
                 }
 
                     
-                    .service-title{margin-top: 5%; font-size: 1.3rem;}
-                    .service-title-span{margin-top: 15%; font-size: 1.8rem; font-weight: bold;}
+                    .service-title{margin-top: 65%; font-size: 1.3rem;}
+                    .service-title-span{margin-top: 72%; font-size: 1.8rem; font-weight: bold;}
+                    #transportation-title{margin-top: 55%;}
+                    #transportation-span{margin-top: 72%;}
+
             }
 
             
@@ -128,7 +157,7 @@ body{
         display: flex;
         flex-wrap: nowrap;
         background: rgb(237,255,246);
-background: linear-gradient(0deg, rgba(237,255,246,1) 76%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(0deg, rgba(237,255,246,1) 76%, rgba(255,255,255,1) 100%);
         padding-left: 10%;
         padding-top: 10%;
 
@@ -144,6 +173,10 @@ background: linear-gradient(0deg, rgba(237,255,246,1) 76%, rgba(255,255,255,1) 1
 
             ul{
                 list-style-type: none;
+                
+                .sub-heading{
+                    margin-bottom: 2%;
+                }
 
                 .bold{
                     color: #404145;
@@ -197,6 +230,13 @@ background: linear-gradient(0deg, rgba(237,255,246,1) 76%, rgba(255,255,255,1) 1
             font-size: 1.1rem;
             color: black;
             background-color: #ffff;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .getStarted-btn:hover{
+            transform: scale(1.1);
+
         }
 
         .image{
