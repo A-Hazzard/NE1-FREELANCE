@@ -143,9 +143,13 @@ body{
     
         .services{
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             width: 100vw;
 
+            .service, .service-img{
+                border-radius: .5rem;
+
+            }
             .service{
                 display: inline-block;
                 margin-top: 2%;
@@ -156,11 +160,13 @@ body{
                 cursor: pointer;
                 overflow: hidden;
 
+
                 .service-img{
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                     transition: transform 0.3s ease-in-out;
+
                 }
 
                 .service-img:hover{

@@ -61,13 +61,49 @@
             <h2>Services</h2>
         <div class="services">
 
-            <div class="service service1">
-                <p class="service-title" id="transportation-title">Efficient Transportation Solutions</p>
-                <p class="service-title-span" id="transportation-span">Transportation</p>
-                <img class="service-img" src="{% static 'images/transporation.jpg' %}" alt="Cars">
-            </div>
 
-            <div class="service service2">
+            <!--Iterate through each service-->
+            {% for service in services %}
+            <div class="service service1">
+
+                <!--If the service = Transportation, append an id-->
+                {% if service.title == 'Transportation' %}
+
+                <!--Display the tagline given in the admin page for each service-->
+                <p class="service-title" id="transportation-title">{{ service.tagline }}</p>
+                {% else %}
+                <p class="service-title">{{ service.tagline }}</p>
+                    {% endif %}
+
+                <!--Display the title given in the admin page for each service-->
+                    <p class="service-title-span">{{ service.title }}</p>
+                
+                <!--If the service = Transportation, append an id-->
+                {% if service.title == 'Transportation' %}
+                    <p class="service-title-span"  id="transportation-span">{{ service.title }}</p>
+                    {% else %}
+                    <p class="service-title-span">{{ service.title }}</p>
+                        {% endif %}
+                
+
+                <!--If there is an image for this service, display it-->
+                {% if service.image %}
+                <img class="service-img" src="{{ service.image.url }}" alt="{{ service.title }}">
+                {% else %}
+                <style>
+                    .service{
+                        background-color: rgb(98, 98, 98);
+                    }
+                </style>
+                {% endif %}
+                <!-- <img class="service-img" src="{% static 'images/transporation.jpg' %}" alt="Cars"> -->
+            </div>
+            {% endfor %}
+
+            <!--THE BELOW COMMENTED CODE IS HARD CODED SERVICES. THE DYNAMIC SERVICE TEMPLATE IS ABOVE-->
+
+
+            <!-- <div class="service service2">
                 <p class="service-title">Get your area cleansed</p> <span class="service-title-span">Cleaning</span>
 
                 <img class="service-img" src="{% static 'images/cleaning.jpg' %}" alt="Cleaning supplies">
@@ -86,7 +122,7 @@
 
                 <img class="service-img" src="{% static 'images/administration.jfif' %}" alt="Admins">
 
-            </div>
+            </div> -->
         </div>
         
         </div>

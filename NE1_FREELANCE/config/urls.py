@@ -25,4 +25,4 @@ urlpatterns = [
     path('home/', views.index, name = 'homePage'),
     path('index/', views.index, name = 'homePage'),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

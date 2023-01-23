@@ -123,8 +123,11 @@ body {
 }
 .main-container .flexible-services .services {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100vw;
+}
+.main-container .flexible-services .services .service, .main-container .flexible-services .services .service-img {
+  border-radius: 0.5rem;
 }
 .main-container .flexible-services .services .service {
   display: inline-block;
