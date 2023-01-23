@@ -18,11 +18,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from home import views
+from home import views as home_view
+from aboutus import views as about_view
 
 urlpatterns = [
-    path('', views.index, name = 'homePage'),
-    path('home/', views.index, name = 'homePage'),
-    path('index/', views.index, name = 'homePage'),
+    path('',home_view.index, name = 'homePage'),
+    path('home/',home_view.index, name = 'homePage'),
+    path('index/',home_view.index, name = 'homePage'),
+    path('aboutus/',about_view.aboutus, name = 'aboutUsPage'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
