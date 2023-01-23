@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/index.css">
+    {% extends 'navbar.html' %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
     <script src="https://kit.fontawesome.com/18479e6558.js" crossorigin="anonymous"></script>
     <title>NE1-Freelance</title>
+    
 </head>
 <body>
+
+{% block content %}
     <!--Banner used to search for jobs-->
-    <div class="top-banner">
+    <header class="top-banner">`
 
         <!--This is the red portion of the curve blending into green-->
         <div class="red-gradient">
-
+        
             <!--Logo of the website-->
             <img class = "logo" src="images/logo.png" alt="logo">
             <h1 class="title"><b>Freelance</b></h1> <!--Title of the website-->
-                <form action="">
+                <form action="search/" method="POST">
                         <!--Search field-->
-                    <input class="search" type="text" placeholder="Search for job..." />
+                    <input class="search" type="text" placeholder="Search for job..." >
                     <button class="search-btn" type="submit">
                         <i class="fa fa-search"></i>
                     </button>        
                 </form>
                 </div>
 
-    </div>
+    </header>
 
 
 
@@ -131,9 +138,9 @@
         <!--Login/Sign up banner-->
         <div class="getStarted">
             <div>
-                <h5>Unlock your business's <i>potential</i> <br /> 
+                <h5>Unlock your business's <i>potential</i> <br> 
                     with the right talent!</h5>
-                    <br />
+                    <br>
                 <button class="getStarted-btn">Get Started</button>
             </div>
 
@@ -146,7 +153,21 @@
 
     </main>
 
-
+    {% endblock %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            //Submit a search query if the user presses enter
+            $('.search').on('keyup', function(event){
+                if(event.keyCode === 13){
+                    event.preventDefault();
+                    $('form').submit();
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
