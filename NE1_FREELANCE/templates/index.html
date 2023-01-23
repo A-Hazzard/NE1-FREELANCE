@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/18479e6558.js" crossorigin="anonymous"></script>
     {% load static %}
     
-    {% block head %}
+    {% block head %}<!--Block code used for django static referencing-->
     <link rel="stylesheet" href="{% static 'css/index.css' %}"> 
     {% endblock %}
 
@@ -21,41 +21,42 @@
 
 
     <!--Banner used to search for jobs-->
-    <header class="header">`
-            
-        <nav>
-            <ul class="navbar">
-                <li><a href="#">News</a></li>
-                <li><a href="#">Sign in</a></li>
-                <li><a href="#">Join</a></li>
-            </ul>
-        </nav>
-        <!--This is the red portion of the curve blending into green-->
-        <div class="red-gradient">
-        
-            
-            <!--Logo of the website-->
-            <img class = "logo" src="{% static 'images/logo.png' %}" alt="logo">
-            <h1 class="title"><b>Freelance</b></h1> <!--Title of the website-->
+<header class="header">
+    <!-- Navigation bar with links to News, Sign in and Join -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="#">News</a></li>
+            <li><a href="#">Sign in</a></li>
+            <li><a href="#">Join</a></li>
+        </ul>
+    </nav>
+    <!--This is the red portion of the curve blending into green-->
+    <div class="red-gradient">
+        <!--Logo of the website-->
+        <img class = "logo" src="{% static 'images/logo.png' %}" alt="logo">
+        <!-- Title of the website -->
+        <h1 class="title"><b>Freelance</b></h1>
+        <!-- Form for searching jobs -->
+        <form action="search/" method="POST">
+            <!-- Tagline for the website -->
+            <p class="tagline">Transforming you business <b>NEW</b>here <b>NET</b>ime</p>
+            <!-- Job Search input field -->
+            <input class="search" type="text" placeholder="Search for job..." >
+            <!-- Search button -->
+            <button class="search-btn" type="submit">
+                <i class="fa fa-search"></i> <!--Search icon-->
+            </button>        
+        </form>
+    </div>
+</header>
 
-                <form action="search/" method="POST">
-                        <!--Search field-->
-                        <p class="tagline">Transforming you business <b>NEW</b>here <b>NET</b>ime</p>
-                    <input class="search" type="text" placeholder="Search for job..." >
-                    <button class="search-btn" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>        
-                </form>
-                </div>
-
-    </header>
 
 
 
     <!--Main container to hold everything-->
     <main class="main-container">
 
-        <!--flexbox container that displays 4 services-->
+        <!--flexbox container that displays 4 SERVICES-->
         <div class="flexible-services">
             <h2>Services</h2>
         <div class="services">
@@ -91,7 +92,7 @@
         </div>
         
 
-        <!--Some text about the services-->
+        <!--text ABOUT THE SERVICES-->
         <div class="reassurance-flex-box">
             <div class="text">
                 <h3>An abundance of freelance skill readily accessible at your disposal</h3>
@@ -160,23 +161,30 @@
 
                                 <!-- Login form -->
                 <form class="login-form" class="hidden">
+
+                    <!--FIRST LAYER OF THE FORM-->
                     <div class="form-visible">
                         <h2 class="join-new-h2">Join Now</h2>
 
+                        <!--CONTINUE BUTTON, DOES NOT SUBMIT THE FORM BUT DISPLAYS THE SECOND LAYER-->
                             <button class="join-with-google-button">
+                                <!--google svg logo-->
                                 <svg class="google-svg" width="18" height="19" viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg"><path d="M9 7.84363V11.307H13.8438C13.6365 12.428 12.9994 13.373 12.0489 14.0064V16.2534H14.9562C16.6601 14.6951 17.641 12.4029 17.641 9.67839C17.641 9.04502 17.5854 8.43176 17.4792 7.84865H9V7.84363Z" fill="#3E82F1"></path><path d="M9.00001 14.861C6.65394 14.861 4.67192 13.2876 3.96406 11.1714H0.955627V13.4937C2.43709 16.4142 5.48091 18.4198 9.00001 18.4198C11.432 18.4198 13.4697 17.6206 14.9562 16.2533L12.0489 14.0064C11.245 14.5443 10.2135 14.861 9.00001 14.861Z" fill="#32A753"></path><path d="M3.96404 5.45605H0.955617C0.348876 6.66246 0 8.02972 0 9.47238C0 10.915 0.348876 12.2823 0.955617 13.4887L3.96404 11.1714C3.78202 10.6335 3.6809 10.0605 3.6809 9.47238C3.6809 8.88426 3.78202 8.31122 3.96404 7.77336V5.45605Z" fill="#F9BB00"></path><path d="M0.955627 5.45597L3.96406 7.77327C4.67192 5.65703 6.65394 4.08368 9.00001 4.08368C10.3197 4.08368 11.5079 4.53608 12.4382 5.42078L15.0219 2.85214C13.4646 1.40948 11.427 0.52478 9.00001 0.52478C5.48091 0.52478 2.43709 2.53043 0.955627 5.45597Z" fill="#E74133"></path></svg>
                             <span>Join with Google</span>
                             </button>
 
+                            <!--OR Text in the center of 2 horizontal tags-->
                             <div class="or-text">
                                 <hr class="line">
                                 <span class="OR">OR</span>
                                 <hr class="line">
                             </div>
 
+                            <!--Email input-->
                             <label for="email" style="display: none">Email</label>
                             <input type="email" class="email" placeholder="Enter your email" required>
 
+                            <!--Button to display the second layer of the form-->
                             <button class="continue-button" type="button">Continue</button>
                             <hr style = "width: 100%; margin-top: 15%; margin-bottom: 3%;">
                             
@@ -185,15 +193,24 @@
                     </div>
                     
                     <!--The following code only displays after the user presses continue and enters their email-->
-                    
+                        <!--SECOND LAYER OF THE FORM, HIDDEN BY DEFAULT-->
                     <div class="form-hidden">
-                            <h2 class = "join-new-h2">Join Now</h2>
+                        <h2 class = "join-new-h2">Join Now</h2>
 
-                        <label style="display: none;" for="username" class="username-label" >Username</label>
+                        <label style="display: none;" for="username" class="username-label" >
+                            Username
+                        </label>
                         <input type="text" class="username" placeholder="Choose a username" class="hidden">
-                        <label style="display: none;" for="password" class="password-label">Password</label>
+                        
+                        <label style="display: none;" for="password" class="password-label">
+                            Password
+                        </label>
+
                         <input type="password" class="password" placeholder="Choose a Password" class="hidden">
+                        
                         <p class="password-validation">8 characters or longer. Combine upper and lowercase letters and numbers</p>
+                        
+                        <!--Submits the form and registers user-->
                         <button class="join-button" class="hidden">Join</button>
                     </div>
                     
@@ -209,7 +226,7 @@
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--Jquery-->
 
     <script>
         $(document).ready(function(){
@@ -224,7 +241,9 @@
                     $('form').submit();
                 }
             });
+
             
+            //Displays the registration/login form when get started button is clicked and also overlays a dimmed background while disabling scroll
             $(".getStarted-btn").on('click', () => {
                 $(".login-form").show();
                 $('.form-visible').show()
@@ -232,6 +251,7 @@
                 $('body').css("overflow", "hidden")
             })
 
+            //Checks if the email field blank to alert, if not, when the user continues, it shows the 2nd layer of the form 
             $('.continue-button').click(function(){
                 var email = $('.email').val();
                 if(email != ''){
@@ -242,17 +262,20 @@
 
             });
 
+
+            //Checks if username/password is blank, if not submits the form
             $('.join-button').click(function(){
                 var username = $('.username').val();
                 var password = $('.password').val();
                 if(username != '' && password != ''){
-                    //submit the form
+                    $('.login-form').submit();
                 } else {
                     alert("Please enter both username and password");
                 }
             });
 
 
+            //If the user clicks the overlay(anywhere besides the form), the the overflow and the form is hidden and user can scroll
             $('.overlay').on('click', () => {
                 $('.overlay').toggleClass('hidden');
                 $('body').css('overflow-y', 'unset')
