@@ -232,7 +232,7 @@
         $(document).ready(function(){
 
             //Hides the username and email portion of the sign up form when the page loads
-            $('.form-hidden').hide();
+            $('.form-hidden').hide("fast");
 
             //Submit a search query if the user presses enter
             $('.search').on('keyup', function(event){
@@ -245,8 +245,8 @@
             
             //Displays the registration/login form when get started button is clicked and also overlays a dimmed background while disabling scroll
             $(".getStarted-btn").on('click', () => {
-                $(".login-form").show();
-                $('.form-visible').show()
+                $(".login-form").show("fast");
+                $('.form-visible').show("fast")
                 $('.overlay').toggleClass('hidden');
                 $('body').css("overflow", "hidden")
             })
@@ -255,7 +255,7 @@
             $('.continue-button').click(function(){
                 var email = $('.email').val();
                 if(email != ''){
-                    $('.form-hidden').show();
+                    $('.form-hidden').show("fast");
                 } else {
                     alert("Please enter email");
                 }
@@ -279,9 +279,9 @@
             $('.overlay').on('click', () => {
                 $('.overlay').toggleClass('hidden');
                 $('body').css('overflow-y', 'unset')
-                $('.login-form').hide()
-                $('.form-visible').hide()
-                $('.form-hidden').hide()
+                $('.login-form').hide("fast")
+                $('.form-visible').hide("fast")
+                $('.form-hidden').hide("fast")
             })
         });
     
