@@ -20,11 +20,12 @@ from django.conf.urls.static import static
 
 from home import views as home_view
 from aboutus import views as about_view
+from searchResults import views as search_results
+
 
 urlpatterns = [
     path('',home_view.index, name = 'homePage'),
-    path('home/',home_view.index, name = 'homePage'),
-    path('index/',home_view.index, name = 'homePage'),
+    path('search/', search_results.search_jobs, name = 'search'),
     path('aboutus/',about_view.aboutus, name = 'aboutUsPage'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

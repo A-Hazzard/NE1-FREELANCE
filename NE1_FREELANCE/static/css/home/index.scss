@@ -75,6 +75,19 @@ body{
         
 
         form{
+            .category{
+                position: absolute;
+                left: 20%;
+                top: 45%;
+                height: 50px;
+                width: 80px;
+                background: grey;
+                border-radius: 32px;
+                border: none;
+                padding-left: 2%;
+                outline: none;
+                font-size: 1.3rem;
+            }
 
             .tagline{
                 font-weight: 600px;

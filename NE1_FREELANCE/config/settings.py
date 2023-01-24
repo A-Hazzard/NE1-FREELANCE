@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    'aboutus.apps.AboutusConfig'
+    'aboutus.apps.AboutusConfig',
+    'searchResults.apps.SearchresultsConfig',
+
 ]
 
 MIDDLEWARE = [

@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .models import Services
+from .models import Service
 
 # Create your views here.
 def index(request):
-    services = Services.objects.all()
+    services = Service.objects.all()
     
     return render(request,'home/index.html' , {'services' : services})
