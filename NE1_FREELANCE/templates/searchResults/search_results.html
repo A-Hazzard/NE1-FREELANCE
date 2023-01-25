@@ -16,61 +16,65 @@
 </head>
 <body>
 
-    
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2>Search Results</h2>
-                {% if jobs.exists %}
-                    <p>You searched for: {{ search_term }}</p>
-                    {% if did_you_mean %}
-                        <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}">{{ corrected_term }}</a></p>
-                    {% endif %}
-                    <form method="GET" action="{% url 'search_jobs' %}">
-                        {% csrf_token %}
-                        <input type="text" name="search" value="{{ search_term }}">
-                        <select name="category">
-                            <option value="">All categories</option>
-                            {% for category in categories %}
-                                <option value="{{ category.name }}" {% if category.name == category_name %}selected{% endif %}>{{ category.name }}</option>
+                {% if jobs %}
+                        <p>You searched for: {{ search_term }}</p>
+                        {% if corrected_term %}
+                            <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}">{{ corrected_term }}</a></p>
+                        {% endif %}
+
+                        {% if search_term %}
+                            <form method="POST" action="{% url 'search_jobs' %}">
+                                {% csrf_token %}
+                                <input type="text" name="search" value="{{ search_term }}">
+                                <select name="category">
+                                    <option value="">All categories</option>
+                                    {% for category in categories %}
+                                        <option value="{{ category.name }}" {% if category.name == category_name %}selected{% endif %}>{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit">Filter</button>
+                            </form>
+                        {% endif %}
+                        <div class="job-list">
+                            {% for job in jobs %}
+                                <div class="job-card">
+                                    <h3>{{ job.title }}</h3>
+                                    <p>{{ job.description }}</p>
+                                    <p>{{ job.price }}</p>
+                                    <p>{{ job.category }}</p>
+                                </div>
                             {% endfor %}
-                        </select>
-                        <button type="submit">Filter</button>
-                    </form>
-                    <div class="job-list">
-                        {% for job in jobs %}
-                            <div class="job-card">
-                                <h3>{{ job.title }}</h3>
-                                <p>{{ job.description }}</p>
-                                <p>{{ job.price }}</p>
-                                <p>{{ job.category }}</p>
-                            </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+
                 {% else %}
                     <p>No jobs found for: {{ search_term }}</p>
-                    <form method="GET" action="{% url 'search_jobs' %}">
-                        {% csrf_token %}
-                        <input type="text" name="search" value="{{ search_term }}">
-                        <select name="category">
-                            <option value="">All categories</option>
-                            {% for category in categories %}
-                                <option value="{{ category.name }}" {% if category.name == category_name %}selected{% endif %}>{{ category.name }}</option>
-                            {% endfor %}
-                        </select>
-                        <button type="submit">Filter</button>
-                    </form>
-                {% endif %}
+
+                    {% if corrected_term %}
+                        <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}">{{ corrected_term }}</a></p>
+                    {% endif %}
+
+                    {% if search_term %}
+                        <form method="POST" action="{% url 'search_jobs' %}">
+                            {% csrf_token %}
+                            <input type="text" name="search" value="{{ search_term }}">
+                            <select name="category">
+                                <option value="">All categories</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.name }}" {% if category.name == category_name %}selected{% endif %}>{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit">Filter</button>
+                        </form>
+                    {% endif %}
+                    {% endif %}
+
             </div>
         </div>
     </div>
-    
-
-
-
-
-
-
 </body>
 </html>
 
