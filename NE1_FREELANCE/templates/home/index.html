@@ -38,13 +38,14 @@
         <!-- Title of the website -->
         <h1 class="title"><b>Freelance</b></h1>
 
-        <form method="POST" action="{% url 'search' %}">
+        <form method="GET" action="{% url 'search_jobs' %}">
             {% csrf_token %}
             <input class="search" type="text" placeholder="Search for job..." name="search">
             <button class="search-btn" type="submit" title="search button">
                 <i class="fa fa-search"></i> <!--Search icon-->
             </button> 
         </form>
+
         
         
         
