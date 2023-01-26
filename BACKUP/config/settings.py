@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'aboutus.apps.AboutusConfig',
     'searchResults.apps.SearchresultsConfig',
+    'createjob.apps.CreatejobConfig'
 ]
 
 MIDDLEWARE = [
