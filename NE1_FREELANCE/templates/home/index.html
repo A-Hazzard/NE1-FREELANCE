@@ -40,7 +40,7 @@
 
         <form method="GET" action="{% url 'search_jobs' %}">
             {% csrf_token %}
-            <input class="search" type="text" placeholder="Search for job..." name="search">
+            <input class="search" type="text" placeholder="Search for job..." name="search" required>
             <button class="search-btn" type="submit" title="search button">
                 <i class="fa fa-search"></i> <!--Search icon-->
             </button> 
