@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -22,10 +24,10 @@ from home import views as home_view
 from aboutus import views as about_view
 from searchResults import views as search_results
 
-
 urlpatterns = [
-    path('',home_view.index, name = 'homePage'),
+    path('',home_view.index, name = 'home_page'),
     path('search/', search_results.search_jobs, name = 'search_jobs'),
-    path('aboutus/',about_view.aboutus, name = 'aboutUsPage'),
+    path('createjob/', include("createjob.urls"), name = 'create_job'),
+    path('aboutus/',about_view.aboutus, name = 'about_us'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
