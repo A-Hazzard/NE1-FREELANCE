@@ -21,81 +21,99 @@
     <a href="{% url 'homePage' %}" class="btn btn-secondary">Home</a>
 
 
-                <!-- This is the main container for the search results page -->
             <div class="container">
-                <!-- This is the row that contains the main content -->
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- This is the title of the search results page -->
                         <h2>Search Results</h2>
 
-                    <!-- This block of code checks if there are any jobs found for the search term -->
+                    <!--checks if there are any jobs found in the database -->
                     {% if jobs %}
-                        <!-- If there are jobs found, this text displays the search term that was used -->
+                        <!-- If there are jobs found, displays the search term that was used -->
                         <p>Results for "{{ search_term }}"</p>
-                        <!-- This block of code checks if there is a corrected search term -->
+                        <!-- check if there is a corrected search term -->
                         {% if corrected_term %}
-                            <!-- This block of code checks if there is a "Did you mean?" suggestion -->
+                            <!-- check if there is a "Did you mean?" suggestion -->
                             {% if did_you_mean == None %}
-                                <!-- If there is no suggestion, this is left blank -->
+                                <!-- If there is no suggestion, do not suggest anything-->
                                 <p></p>
                             {% endif %}
+
+
                         {% elif corrected_term and did_you_mean != None %}
-                            <!-- If there is a suggestion, this text displays "Did you mean?" and a link to search for the suggested term -->
-                            <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}" target="_blank">{{ corrected_term }}</a></p>
+                                <!-- If there is a suggestion, this text displays "Did you mean?" and a link to search for the suggested term -->
+                                <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}" target="_blank">{{ corrected_term }}</a></p>
                         {% endif %}
 
-                        <!-- This block of code checks if there is a search term -->
-                        {% if search_term %}
-                            <!-- If there is a search term, this form allows the user to filter the search results by category -->
 
-                            <form method="POST" action="{% url 'search_jobs' %}">
+
+
+
+
+                        <!-- check if user searched for anything -->
+                        {% if search_term %}
+                            <!-- If they did, allow the user to filter the search results by category -->
+
+                            <form method="GET" action="{% url 'search_jobs' %}?query={{ search_term }}">
                                 {% csrf_token %}
-                                <!-- input field for the search term, with "search" as the name attribute and the value of the variable "search_term" -->
-                                <input type="text" name="search" required>
-                                <!-- select input for category filter -->
+                                <input class="search" type="text" placeholder="Search for job..." name="search" required>
                                 <select name="category">
-                                    <!-- default option is "All categories" -->
                                     <option value="">All categories</option>
                                     {% for category in categories %}
-                                        <!-- for each category in categories, create an option element with the category name as the value and text, and if the category name matches the category_name variable, add the "selected" attribute -->
-                                        <option value="{{ category.name }}" {% if category.name == category_name %}selected{% endif %}>{{ category.name }}</option>
+
+                                        <!-- for each category in the categories table stored in the database, 
+                                            create an option element with the category name as the value and text, 
+                                            and if the category name matches the category_name variable, add the "selected" attribute -->
+                                            
+                                        <option value="{{ category.name }}" 
+                                            {% if category.name == category_name %}
+                                                selected
+                                            {% endif %}
+                                        >{{ category.name }}</option>
                                     {% endfor %}
                                 </select>
-                                <!-- submit button to filter the search results -->
                                 <button type="submit">Filter</button>
                             </form>
-                        {% endif %}
+                        {% endif %} <!--End the  if search_term  block-->
                         
-                        <!-- container for the job listing -->
-                        <div class="job-list">
-                            {% for job in jobs %}
-                                <!-- container for each job item -->
-                                <div class="job-card">
-                                    <!-- display the job title -->
-                                    <h3>{{ job.title }}</h3>
-                                    <!-- display the job description -->
-                                    <p>{{ job.description }}</p>
-                                    <!-- display the job price -->
-                                    <p>{{ job.price }}</p>
-                                    <!-- display the job category -->
-                                    <p>{{ job.category }}</p>
-                                </div>
-                            {% endfor %}
-                        </div>
+                            <!-- flex-container for the job listing -->
+                            <div class="job-list">
+                                <!--For each job in the database, create a job card for them with a:
+                                    1) Header
+                                    2) Description
+                                    3) Price
+                                    4) Thumbnail (Coming soon)
+                                -->
+                                {% for job in jobs %}
+                                    <!-- container for each job item -->
+                                    <div class="job-card">
+                                        <!-- display the job title -->
+                                        <h3>{{ job.title }}</h3>
+                                        <!-- display the job description -->
+                                        <p>{{ job.description }}</p>
+                                        <!-- display the job price -->
+                                        <p>{{ job.price }}</p>
+                                        <!-- display the job category -->
+                                        <p>{{ job.category }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
 
-                        {% else %}
+                        {% else %} 
+
+
+                        
                         <!-- This block is executed when there are no jobs found based on the search term -->
                         <p>No jobs found for: {{ search_term }}</p>
-                        <!-- This block is executed when there's a corrected search term found  -->
-                        {% if corrected_term %}
-                        <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}" target="_blank">{{ corrected_term }}</a></p>
-                        {% endif %}
+
+                            <!-- This block is executed when there's a corrected search term found  -->
+                            {% if corrected_term %}
+                            <p>{{ did_you_mean }} <a href="{% url 'search_jobs' %}?search={{ corrected_term }}" target="_blank">{{ corrected_term }}</a></p>
+                            {% endif %}
                         
-                        Copy code
+
                                         <!-- This block is executed when there's a search term entered -->
                                         {% if search_term %}
-                                            <form method="POST" action="{% url 'search_jobs' %}">
+                                            <form method="GET" action="{% url 'search_jobs' %}">
                                                 {% csrf_token %}
                                                 <input type="text" name="search" required>
                                                 <select name="category">
@@ -107,7 +125,12 @@
                                                 <button type="submit">Filter</button>
                                             </form>
                                         {% endif %}
-                                        {% endif %}
+
+
+
+
+
+                    {% endif %}<!--End of  if jobs condition block-->
                                 </div>
                             </div>
                         </div>

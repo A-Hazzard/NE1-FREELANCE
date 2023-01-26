@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'aboutus.apps.AboutusConfig',
     'searchResults.apps.SearchresultsConfig',
-
 ]
 
 MIDDLEWARE = [

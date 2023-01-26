@@ -4,17 +4,22 @@ from .models import Job, JobCategory
 import fuzzywuzzy
 from fuzzywuzzy import process
 
+
 def search_jobs(request):
     search_term = request.GET.get('search')
     if search_term is None:
         search_term = ''
+        print("File:\n" + __file__ + "\n(LOG): User didn't search for anything")
+    else: 
+        print("File:\n" + __file__ + "\n(LOG): User searched for", search_term, "")
     category_name = request.GET.get('category') 
     if category_name == '':
         category_name = ""
-
+        print("File:\n" + __file__ + "\n(LOG): Category not chosen ")
     category = None
     if category_name:
         category = JobCategory.objects.filter(name__iexact=category_name).first()
+    
 
     jobs = Job.objects.filter(Q(title__icontains=search_term) | Q(description__icontains=search_term))
     if category:
@@ -39,5 +44,7 @@ def search_jobs(request):
         'categories': categories,
         'category_name': category_name
     }
+    print("\nFile:\n" + __file__ + "\n(LOG): Category:", category_name, "\n")
+
     return render(request, 'searchResults/search_results.html', context)
 
