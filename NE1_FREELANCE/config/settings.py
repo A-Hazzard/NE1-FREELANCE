@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'ckeditor', #text formatter for textarea fields. pip install django-ckeditor
-    'tinymce',#text formatter for textarea fields. pip install django-tinymce
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

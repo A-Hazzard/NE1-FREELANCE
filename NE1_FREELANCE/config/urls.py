@@ -27,6 +27,7 @@ from searchResults import views as search_results
 urlpatterns = [
     path('',home_view.index, name = 'home_page'),
     path('search/', search_results.search_jobs, name = 'search_jobs'),
+    path('jobs/', home_view.register, name = 'register'),
     path('createjob/', include("createjob.urls"), name = 'create_job'),
     path('aboutus/',about_view.aboutus, name = 'about_us'),
     path('admin/', admin.site.urls),

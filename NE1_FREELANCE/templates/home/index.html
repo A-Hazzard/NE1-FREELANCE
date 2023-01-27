@@ -191,8 +191,8 @@
                 <button class="getStarted-btn" title="get started button">Get Started</button>
                 <div class="overlay hidden"></div>
 
-                                <!-- Login form -->
-                <form class="login-form" class="hidden">
+                <!-- Login form -->
+                <form method = "POST" action = "{% url 'register' %}" class="login-form hidden">
                     {% csrf_token %}
 
                     <!--FIRST LAYER OF THE FORM-->
@@ -215,7 +215,7 @@
 
                             <!--Email input-->
                             <label for="email" style="display: none">Email</label>
-                            <input type="email" class="email" placeholder="Enter your email" required>
+                            <input type="email" class="email" name = "email" placeholder="Enter your email" required>
 
                             <!--Button to display the second layer of the form-->
                             <button class="continue-button" type="button" title="continue button">Continue</button>
@@ -233,13 +233,13 @@
                         <label style="display: none;" for="username" class="username-label" >
                             Username
                         </label>
-                        <input type="text" class="username" placeholder="Choose a username" class="hidden">
+                        <input type="text" class="username" name = "user_name" placeholder="Choose a username" class="hidden" required>
                         
                         <label style="display: none;" for="password" class="password-label">
                             Password
                         </label>
 
-                        <input type="password" class="password" placeholder="Choose a Password" class="hidden">
+                        <input type="password" class="password" name = "password" placeholder="Choose a Password" class="hidden" required>
                         
                         <p class="password-validation">8 characters or longer. Combine upper and lowercase letters and numbers</p>
                         
