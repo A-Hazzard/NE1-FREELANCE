@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Service
 from searchResults.models import JobCategory
-# from searchResults.views import search_jobs
 from django.contrib import messages
-from django.contrib.auth.models import User
+from .models import User
+import datetime
 
 # Create your views here.
 def index(request):
@@ -47,6 +47,8 @@ def register(request):
 
         # Create user object
         user = User.objects.create_user(username=username, email=email, password=password)
+        from datetime import datetime
+        user.last_login = datetime.now()
         user.save()
 
         messages.success(request, "Signup successful")
