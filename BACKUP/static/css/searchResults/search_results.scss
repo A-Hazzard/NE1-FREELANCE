@@ -1,0 +1,28 @@
+div.job-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+div.job {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+}
+
+div.job-list {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+// input:invalid{
+//     animation: shake .3s;
+// }
+
+// @keyframes shake {
+//     25% { transform: translateX(4px); }
+//     50% { transform: translateX(-4px); }
+//     75% { transform: translateX(4px); }
+
+// }

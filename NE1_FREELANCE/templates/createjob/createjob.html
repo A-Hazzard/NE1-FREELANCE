@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/createjob/createjob.css' %}">
+    <title>NE1-FREELANCE - Create Job</title>
+</head>
+<body>
+    <a href="{% url 'home_page' %}" class="btn btn-secondary">Home</a>
+
+    <form method="GET" action = "{% url 'create_job' %}" id="job_form" > 
+        <h1>CREATE A JOB</h1>
+        {% csrf_token %}
+        {% if error %}
+                <p style = "color: red; font-size: 1rem;">{{ error }}</p>
+            {% endif %}
+        <label class="required" for="id_title">Title: </label> <br>
+            <input  type="text" name="title" class="vTextField" maxlength="255" ="" id="id_title" required>
+<br>
+        <label class="" for="id_description">Description:</label> <br>
+            <textarea name="description" cols="40" rows="10" id="id_description" spellcheck="false" 
+                data-gramm="false" wt-ignore-input="true" data-quillbot-element="bpSxNulAr5l441QMDPJPc" required>
+            </textarea>
+<br>
+        <label class="" for="id_price">Price:</label> <br>
+            <input  type="number" name="price" step="0.01" required="" id="id_price" required>
+<br>
+        <label for="id_category">Category:</label> <br>
+                            
+        <select name="category" required>
+            <option value="">--------</option>
+            {% for category in job_category %}
+
+                <!-- for each category in the categories table stored in the database, 
+                    create an option element with the category name as the value and text, 
+                    and if the category name matches the category_name variable, add the "selected" attribute -->
+                    
+                <option value="{{ category.name }}" 
+                    {% if category.name == category_name %}
+                        selected
+                    {% endif %}
+                >{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    <br>
+        <input type="submit" value="Save" class="default" name="_save">       
+    
+        </form>
+</body>
+</html>
