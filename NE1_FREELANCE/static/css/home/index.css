@@ -92,7 +92,7 @@ body {
 .header .red-gradient form .search {
   position: absolute;
   left: 90px;
-  top: 130px;
+  top: 110px;
   height: 50px;
   width: 300px;
   background: white;
@@ -106,11 +106,24 @@ body {
   border: none !important;
   background-color: white;
 }
+.header .red-gradient form .category {
+  position: absolute;
+  left: 400px;
+  top: 110px;
+  height: 50px;
+  width: 150px;
+  background: white;
+  border-radius: 1rem;
+  border: none;
+  padding-left: 0.5%;
+  outline: none;
+  font-size: 1rem;
+}
 .header .red-gradient form .fa-magnifying-glass, .header .red-gradient form .search-btn {
   font-size: 1.5rem;
   position: absolute;
-  margin-left: 23%;
-  margin-top: 9.2%;
+  margin-left: 25%;
+  margin-top: 9%;
   background-color: none;
 }
 

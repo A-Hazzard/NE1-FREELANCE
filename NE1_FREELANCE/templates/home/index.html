@@ -42,6 +42,21 @@
         <form method="GET" action="{% url 'search_jobs' %}">
             {% csrf_token %}
             <input class="search" type="text" placeholder="Search for job..." name="search" required>
+            <select name="category" class="category">
+                <option value="">All categories</option>
+                {% for category in job_category %}
+
+                    <!-- for each category in the categories table stored in the database, 
+                        create an option element with the category name as the value and text, 
+                        and if the category name matches the category_name variable, add the "selected" attribute -->
+                        
+                    <option value="{{ category.name }}" 
+                        {% if category.name == category_name %}
+                            selected
+                        {% endif %}
+                    >{{ category.name }}</option>
+                {% endfor %}
+            </select>
             <button class="search-btn" type="submit" title="search button">
                 <i class="fa fa-search"></i> <!--Search icon-->
             </button> 
