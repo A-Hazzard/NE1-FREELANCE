@@ -23,9 +23,10 @@
     <!--Banner used to search for jobs-->
 <header class="header">
     <!-- Navigation bar with links to News, Sign in and Join -->
-    <nav>
-        <ul class="navbar">
+    <nav class="navbar">
+        <ul >
             <li><a href="#">News</a></li>
+            <li><a href="{% url 'job_form' %}">Create job</a></li>
             <li><a href="#">Sign in</a></li>
             <li><a href="#">Join</a></li>
         </ul>
