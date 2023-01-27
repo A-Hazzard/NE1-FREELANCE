@@ -9,7 +9,20 @@
 <body>
     About Us
     {% block info%}
-    <p>{{ information.information }}</p>
+    <!--DON'T REMOVE "|safe", this allows the formatted template from the admin page-->
+    <p>{{ information.information|safe }}</p> 
     {%endblock%}
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--Jquery-->
+
 </body>
 </html>
