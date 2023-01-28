@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    About Us
+    {% block info%}
+    <!--DON'T REMOVE "|safe", this allows the formatted template from the admin page-->
+    <p>{{ information.information|safe }}</p> 
+    {%endblock%}
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--Jquery-->
+
+</body>
+</html>

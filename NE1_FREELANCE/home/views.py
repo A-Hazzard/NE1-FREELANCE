@@ -4,6 +4,8 @@ from searchResults.models import JobCategory
 from django.contrib import messages
 from .models import User
 import datetime
+from django.contrib.auth.hashers import make_password, check_password
+from django.db import IntegrityError
 
 # Create your views here.
 def index(request):
@@ -20,17 +22,24 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
 
+        
         # Check if fields are filled in
         if not all([username, email, password]):
             messages.error(request, "Don't leave any fields blank")
             print("\nDon't leave any fields blank\n")
-            return render(request, 'home/index.html')
+            error = {
+                "blank_field_error" : "Don't leave any fields blank"
+            }
+            return render(request, 'home/index.html', error)
 
         # Check if username is taken
-        if User.objects.filter(username=username).exists():
-            messages.error(request, "Username already taken")
-            print("\nUsername already taken\n")
-            return render(request, 'home/index.html')
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already taken")
+            print("\nEmail already taken\n")
+            error = {
+                "signup_error" : "Email Already Taken"
+            }
+            return render(request, 'home/index.html', error)
 
         # Check if password is common
         common_passwords = ["password", "12345", "admin"]
@@ -46,15 +55,40 @@ def register(request):
             return render(request, 'home/index.html')
 
         # Create user object
-        user = User.objects.create_user(username=username, email=email, password=password)
-        from datetime import datetime
-        user.last_login = datetime.now()
-        user.save()
-
-        messages.success(request, "Signup successful")
-        print("\nSignup successful\n")
-        return render(request, 'searchResults/search_results.html')
-
-
+        # Hash the password
+        hashed_password = make_password(password)
+        try:
+            user = User(email=email, username=username, password=hashed_password)
+            user.save()
+            messages.success(request, "Signup successful")
+            print("\n", __file__, "\nRegistered Successfully!\n")
+            return render(request, 'searchResults/search_results.html')
+        except IntegrityError as e:
+            print("\n", __file__, "\nRegistered Unsuccessful!\n")
+            error = {
+                "signup_error" : "Email Already Taken"
+            }
+            return render(request, 'home/index.html', error)
     else:
         return render(request, 'searchResults/search_results.html')
+
+def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        try:
+            user = User.objects.get(email=email)
+            if check_password(password, user.password):
+                # login successful
+                # do something
+                print("checked password")
+            else:
+                # login failed
+                print("hmm")
+                # do something
+        except User.DoesNotExist:
+            # user with email not found
+            # do something
+            print("Exception ocurred")
+    else:
+        return render(request, 'home/index.html')

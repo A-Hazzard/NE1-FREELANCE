@@ -215,8 +215,11 @@
 
                             <!--Email input-->
                             <label for="email" style="display: none">Email</label>
+                            {% if signup_error %}
+                                    <p style="color: red; font-size: .8rem;">{{ signup_error }}</p>
+                                {% endif %}
                             <input type="email" class="email" name = "email" placeholder="Enter your email" required>
-
+                                
                             <!--Button to display the second layer of the form-->
                             <button class="continue-button" type="button" title="continue button">Continue</button>
                             <hr style = "width: 100%; margin-top: 15%; margin-bottom: 3%;">
@@ -263,8 +266,10 @@
 
     <script src="{% static 'js/index.js' %}"></script>
 
-
-
-
+    {% if blank_field_error %}
+        <script>
+            alert("Cant leave field blank")
+        </script>
+    {% endif %}
 </body>
 </html>
