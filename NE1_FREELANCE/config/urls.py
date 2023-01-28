@@ -25,10 +25,10 @@ from aboutus import views as about_view
 from searchResults import views as search_results
 
 urlpatterns = [
-    path('',home_view.index, name = 'home_page'),
-    path('search/', search_results.search_jobs, name = 'search_jobs'),
-    path('jobs/', home_view.register, name = 'register'),
-    path('createjob/', include("createjob.urls"), name = 'create_job'),
-    path('aboutus/',about_view.aboutus, name = 'about_us'),
-    path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
+    path('search/', search_results.search_jobs, name = 'search_jobs'), #ne1freelance.com/search - Search page displaying jobs
+    path('registered/', home_view.register, name = 'register'), #ne1freelance.com/jobs - Search page, after registration/login
+    path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form
+    path('aboutus/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
+    path('admin/', admin.site.urls), #ne1freelance.com/admin - Displays the admin page
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #used to link the static files ( css/js/images )

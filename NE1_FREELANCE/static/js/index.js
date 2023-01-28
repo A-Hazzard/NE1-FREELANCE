@@ -5,9 +5,22 @@ $(document).ready(function(){
 
     //Submit a search query if the user presses enter
     $('.search').on('keyup', function(event){
+        if(event.keyCode === 13 && $(this).val() != ''){
+            event.preventDefault();
+
+            $('.search_form').submit();
+        }
+
+        if($(this).val() == ''){
+            alert("Don't leave search field blank")
+        }
+    });
+
+    //Submit a search query if the user presses enter
+    $('.password').on('keyup', function(event){
         if(event.keyCode === 13){
             event.preventDefault();
-            $('form').submit();
+            $('.login-form').submit();
         }
     });
 
