@@ -1,3 +1,4 @@
+
 // Get the form and the input elements
 const form = $('form');
 const usernameInput = $('input[name="search"]');

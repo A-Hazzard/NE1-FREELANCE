@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
 from django.db import IntegrityError
@@ -69,7 +70,6 @@ def register(request):
         if not all([username, email, password]):
             messages.error(request, "Don't leave any fields blank")
             print("\nDon't leave any fields blank\n")
-
             return render(request, 'home/index.html', context_blank_field_error)
 
         # Check if username is taken
@@ -105,7 +105,7 @@ def register(request):
             return render(request, 'searchResults/search_results.html', context_jobs)
         except IntegrityError as e:
             print("\n", __file__, "\nRegistered Unsuccessful!\n")
-            
+
             return render(request, 'home/index.html', context_jobs)
     else:
 

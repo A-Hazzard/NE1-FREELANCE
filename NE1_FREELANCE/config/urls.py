@@ -25,9 +25,13 @@ from aboutus import views as about_view
 from searchResults import views as search_results
 
 urlpatterns = [
+    path('', include('users.urls')),
     path('',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
     path('search/', search_results.search_jobs, name = 'search_jobs'), #ne1freelance.com/search - Search page displaying jobs
-    path('registered/', home_view.register, name = 'register'), #ne1freelance.com/jobs - Search page, after registration/login
+    path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls')),
+    path('registered=True/', search_results.search_jobs, name = 'register'), #ne1freelance.com/jobs - Search page, after registration/login
+    path('registered=False/', home_view.register, name = 'failed_to_register'), #ne1freelance.com/jobs - Search page, after registration/login
     path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form
     path('aboutus/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
     path('admin/', admin.site.urls), #ne1freelance.com/admin - Displays the admin page
