@@ -119,11 +119,11 @@ body {
   outline: none;
   font-size: 1rem;
 }
-.header .red-gradient form .fa-magnifying-glass, .header .red-gradient form .search-btn {
+.header .red-gradient form .search-btn {
   font-size: 1.5rem;
   position: absolute;
-  margin-left: 25%;
-  margin-top: 9%;
+  margin-left: 23%;
+  margin-top: 8%;
   background-color: none;
 }
 
