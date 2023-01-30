@@ -22,11 +22,14 @@ from django.conf.urls.static import static
 from home import views as home_view
 from aboutus import views as about_view
 from searchResults import views as search_results
+from contact import views as contact_view
 
 urlpatterns = [
     path('',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
     path('members/', include('django.contrib.auth.urls')), #django's library for user authentican
     path('members/', include('members.urls')), #ne1-freelance.com/members/ - Login/Signup
+    
+    path('contact/', contact_view.contact, name = "contact"),
     path('search/', search_results.search_jobs, name = 'search_jobs'), #ne1freelance.com/search - Search page displaying jobs
     path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form
     path('aboutus/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
