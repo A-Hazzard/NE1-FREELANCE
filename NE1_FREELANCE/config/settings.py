@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'aboutus.apps.AboutusConfig',
     'searchResults.apps.SearchresultsConfig',
     'createjob.apps.CreatejobConfig',
-    'members.apps.MembersConfig'
+    'members.apps.MembersConfig',
+    
 ]
 
 MIDDLEWARE = [
