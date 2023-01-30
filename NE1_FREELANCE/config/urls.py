@@ -28,6 +28,7 @@ urlpatterns = [
     path('',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
     path('members/', include('django.contrib.auth.urls')), #django's library for user authentican
     path('members/', include('members.urls')), #ne1-freelance.com/members/ - Login/Signup
+    
     path('contact/', contact_view.contact, name = "contact"),
     path('search/', search_results.search_jobs, name = 'search_jobs'), #ne1freelance.com/search - Search page displaying jobs
     path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form

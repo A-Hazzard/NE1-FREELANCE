@@ -27,6 +27,8 @@
     {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
         <nav class="logged_in-navbar">
             <ul >
+                <li><a href="{% url 'about_us' %}">About</a></li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{user.username}}
@@ -41,8 +43,9 @@
     {% else %}
         <nav class="logged_out-navbar">
             <ul>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-                    <li><a href="{% url 'login' %}">Login/Signup</a></li>
+                <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'login' %}">Login/Signup</a></li>
             </ul>
         </nav>
     {% endif %}
