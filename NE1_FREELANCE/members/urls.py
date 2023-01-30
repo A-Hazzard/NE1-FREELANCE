@@ -7,8 +7,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     
-    path('login/', views.login_user, name='login'),
-    path('signup/', views.register_user, name = "signup"),
-    path('logout/', views.logout_user, name = "logout")
+    path('login_user/', views.login_user, name='login'),
+    path('signup_user/', views.register_user, name = "signup"),
+    path('logout_user/', views.logout_user, name = "logout")
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #used to link the static files ( css/js/images )

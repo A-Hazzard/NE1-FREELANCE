@@ -21,7 +21,7 @@ def login_user(request):
 
     else:
         print("\nVisited Login Page. Waiting for POST...\n")
-        return redirect("login")
+        return render(request, "members/login.html", {})
 
 def logout_user(request):
     logout(request)
