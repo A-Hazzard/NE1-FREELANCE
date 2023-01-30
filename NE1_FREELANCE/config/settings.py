@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'searchResults.apps.SearchresultsConfig',
     'createjob.apps.CreatejobConfig',
     'members.apps.MembersConfig',
-    
+    'events.apps.EventsConfig'
 ]
 
 MIDDLEWARE = [
