@@ -40,7 +40,8 @@
         </nav>
     {% else %}
         <nav class="logged_out-navbar">
-            <ul >
+            <ul>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
                     <li><a href="{% url 'login' %}">Login/Signup</a></li>
             </ul>
         </nav>
