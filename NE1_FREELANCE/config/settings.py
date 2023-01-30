@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #added apps
+    #added apps with python manage.py startapp [appname]
     'home.apps.HomeConfig',
     'aboutus.apps.AboutusConfig',
     'searchResults.apps.SearchresultsConfig',

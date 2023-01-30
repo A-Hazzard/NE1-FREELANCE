@@ -26,8 +26,10 @@ from searchResults import views as search_results
 
 urlpatterns = [
     path('',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
+    path('members/', include('django.contrib.auth.urls')), #django's library for user authentican
+    path('members/', include('members.urls')), #ne1-freelance.com/members/ - Login/Signup
     path('search/', search_results.search_jobs, name = 'search_jobs'), #ne1freelance.com/search - Search page displaying jobs
     path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form
     path('aboutus/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
-    path('admin/', admin.site.urls), #ne1freelance.com/admin - Displays the admin page
+    path('admin/', admin.site.urls, name = "admin"), #ne1freelance.com/admin - Displays the admin page
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #used to link the static files ( css/js/images )
