@@ -20,10 +20,32 @@ body{
 
 .header {
 
-    .navbar {
+    .logged_in-navbar {
             display: flex;
             z-index: 1;
-            margin-left: 70%;
+            margin-left: 75%;
+            margin-top: 1%;
+            ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                        margin-right: 20px; /* you can adjust the spacing between the links */
+                            a {
+                                text-decoration: none;
+                                color: white; /* change color to white */
+                                font-family: 'Roboto Condensed', sans-serif; /* specify the font-family */
+                                font-size: 1.8rem; /* you can adjust the font size */
+                            }
+                    }
+            }
+        }
+    
+        .logged_out-navbar {
+            display: flex;
+            z-index: 1;
+            margin-left: 80%;
             margin-top: 1%;
             ul {
                 display: flex;

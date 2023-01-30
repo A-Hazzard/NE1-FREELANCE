@@ -23,13 +23,27 @@
     <!--Banner used to search for jobs-->
 <header class="header">
     <!-- Navigation bar with links to News, Sign in and Join -->
-    <nav class="navbar">
+    {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
+        <nav class="logged_in-navbar">
+            <ul >
+                <li><a href="#">News</a></li>
+                    <li><a href="{% url 'job_form' %}">Create job</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                
+            </ul>
+        </nav>
+    {% else %}
+    <nav class="logged_out-navbar">
         <ul >
             <li><a href="#">News</a></li>
-            <li><a href="{% url 'job_form' %}">Create job</a></li>
-            <li><a href="{% url 'login' %}">Login/Signup</a></li>
+                <li><a href="{% url 'login' %}">Login/Signup</a></li>
         </ul>
     </nav>
+    {% endif %}
+
+
+
+
     <!--This is the red portion of the curve blending into green-->
     <div class="red-gradient">
         

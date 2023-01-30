@@ -21,22 +21,43 @@ body {
   display: flex;
   flex-wrap: no-wrap;
 }
-.header .navbar {
+.header .logged_in-navbar {
   display: flex;
   z-index: 1;
-  margin-left: 70%;
+  margin-left: 75%;
   margin-top: 1%;
 }
-.header .navbar ul {
+.header .logged_in-navbar ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.header .navbar ul li {
+.header .logged_in-navbar ul li {
   margin-right: 20px; /* you can adjust the spacing between the links */
 }
-.header .navbar ul li a {
+.header .logged_in-navbar ul li a {
+  text-decoration: none;
+  color: white; /* change color to white */
+  font-family: "Roboto Condensed", sans-serif; /* specify the font-family */
+  font-size: 1.8rem; /* you can adjust the font size */
+}
+.header .logged_out-navbar {
+  display: flex;
+  z-index: 1;
+  margin-left: 80%;
+  margin-top: 1%;
+}
+.header .logged_out-navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header .logged_out-navbar ul li {
+  margin-right: 20px; /* you can adjust the spacing between the links */
+}
+.header .logged_out-navbar ul li a {
   text-decoration: none;
   color: white; /* change color to white */
   font-family: "Roboto Condensed", sans-serif; /* specify the font-family */

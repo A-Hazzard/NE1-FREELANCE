@@ -13,7 +13,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             print("\nLogin Success\n")
-            return redirect('home_page')
+            return redirect('search_jobs')
         else:
             messages.success(request, "Invalid Email/Password")
             print("\nInvalid Email/Password\n")
@@ -23,3 +23,9 @@ def login_user(request):
         print("\nVisited Login Page. Waiting for POST...\n")
         return render(request, 'members/login.html', {})
 
+def logout_user(request):
+    logout(request)
+
+    messages.success(request, ("Logged out Successfully"))
+
+    return redirect('home_page')
