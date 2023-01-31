@@ -9,21 +9,34 @@
     {% load static %}
     <link rel ="stylesheet" href="{% static 'css/contact/contact.css' %}">
     <title>ContactUs</title>
-    <nav class ="nav-bar">
-        <ul>
-            <li>
-                <a href="{% url 'home_page' %}">Home</a>
-            </li>
-            <li>
-                <a href="{% url 'about_us' %}">About</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-            <li>
-                <a href="Jobs.html">Jobs</a>
-            </li>
-        </ul>
+     <!-- Navigation bar with links to News, Sign in and Join -->
+     {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
+     <nav class="logged_in-navbar nav-bar">
+         <ul >
+             <li><a href="{% url 'about_us' %}">About</a></li>
+             <li><a href="{% url 'contact' %}">Contact</a></li>
+
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         {{user.username}}
+                     </a>
+                     <ul class="dropdown-menu">
+                       <li><a class="dropdown-item"  href="{% url 'job_form' %}">Create job</a></li>
+                       <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                     </ul>
+                 </li>
+         </ul>
+     </nav>
+ {% else %}
+     <nav class="logged_out-navbar nav-bar">
+         <ul>
+             <li><a href="{% url 'about_us' %}">About</a></li>
+                 <li><a href="{% url 'contact' %}">Contact</a></li>
+                     <li><a href="{% url 'login' %}">Login/Signup</a></li>
+         </ul>
+     </nav>
+ {% endif %}
+
     </nav>
     </head>
     <body>
