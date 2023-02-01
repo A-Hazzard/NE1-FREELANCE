@@ -12,7 +12,7 @@
 
   <style>
     form{
-      width: 25%;
+      width: 30%;
       margin: 10% auto;
     }
 
@@ -43,9 +43,9 @@
 {% else %}
  <nav class="logged_out-navbar">
      <ul>
+      <li><a href="{% url 'home_page' %}">Home</a></li>
          <li><a href="{% url 'about_us' %}">About</a></li>
              <li><a href="{% url 'contact' %}">Contact</a></li>
-                 <li><a href="{% url 'login' %}">Login/Signup</a></li>
      </ul>
  </nav>
 {% endif %}
@@ -78,7 +78,7 @@
       <input type="password" class="form-control" id="password" name = "password" placeholder="********">
     </div>
     <div class="col-12">
-      <p>Already a member? <a href = "{% url 'register' %}">Sign up</a></p>
+      <p>Need an Account?<a href = "{% url 'register' %}">Sign up</a></p>
     </div>
     <div class="col-12">
       <button class="btn btn-primary submit-btn" type="submit">Login</button>

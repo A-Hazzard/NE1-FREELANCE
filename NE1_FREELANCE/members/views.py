@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+from .forms import RegisterUserForm
+
 def login_user(request):
     print("visited\n\n")
     if request.method == 'POST':
@@ -33,7 +35,8 @@ def logout_user(request):
 
 def register_user(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterUserForm(request.POST)
+
 
         if form.is_valid():
             form.save()
@@ -49,5 +52,5 @@ def register_user(request):
             return redirect("search_jobs")
     
     else:
-        form = UserCreationForm()
+        form = RegisterUserForm()
     return render(request, 'members/signup.html', {'form': form})
