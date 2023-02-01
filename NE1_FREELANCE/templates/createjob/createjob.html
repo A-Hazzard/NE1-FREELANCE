@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--Jquery-->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/createjob/createjob.css' %}">
@@ -47,7 +47,7 @@
 
 
 
-    <form method="GET" action = "{% url 'success' %}" id="job_form" > 
+    <form method="POST" action = "{% url 'job_form' %}" id="job_form" > 
         <h1>CREATE A JOB</h1>
         {% csrf_token %}
         <!-- {% if error %}
@@ -81,10 +81,11 @@
                 >{{ category.name }}</option>
             {% endfor %}
         </select> -->
-    
-        {{ form.as_p }}
-        <br>
-        <input type="submit" value="Save" class="default">       
+       
+            {{ form.as_p }}
+
+        <button class="btn btn-primary submit-btn" type="submit">Create Job</button>
+     
     
         </form>
 
@@ -92,8 +93,13 @@
 
 <!-- templates/create_job.html -->
 
-
-
+ {% if messages %}
+    {% for message in messages %}
+        {% if forloop.counter == 1 %}
+        <script>alert("{{message}}")</script>
+        {% endif %}
+    {% endfor %}
+ {% endif %}
 
 
 

@@ -1,57 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 from searchResults.models import Job, JobCategory
 from .forms import CreateJobForm
 
 # Create your views here.
 def jobForm(request):
+    #Get all the job categories
     job_category = JobCategory.objects.all()
     
+    #if the user sends a POST request I.E if they submit the form
     if request.method == 'POST':
+        #Gather the data inputted from the form
         form = CreateJobForm(request.POST)
+
         if form.is_valid():
             form.save()
-            return redirect('success')
-    else:
-        form = CreateJobForm()
-
-    return render(request, 'createjob/createjob.html', {'form': form, 'job_category': job_category})
-
-
-
-def success(request):
-    #Fetching the user data that was sent via the HTTP Request
-    title = request.GET['title']
-    description = request.GET['description']
-    price = request.GET['price']
-    category_id = request.GET['category']
-    category = JobCategory.objects.get(id=category_id).name
-    
-    info = [ title, description, price, category ]
-
-
-    for i in info:
-        print("\nTitle:", title, "\nDescription:", description, "\nPrice:", price, "\nCategory:", category + "\n")
-        if i == '':
-            print ('\nERROR! Cant leave field empty\n')
-            cannot_leave_space_blank_ERROR = "Do not leave any fields empty" 
-            job_category = JobCategory.objects.all()
-            context = {
-                "error" : cannot_leave_space_blank_ERROR,
-                "job_category" : job_category
-            }
-            return render(request, "createjob/createjob.html", context)
-
+            return redirect('jobs')
         else:
-            #Creating a job from the user input
-            print("\nData entered successful\n")
-            job_category = JobCategory.objects.get(name=category)
-            job = Job(title=title, description=description, price=price, category=job_category)
+            # return render(request, 'createjob/createjob.html', {'error' : 'Dont leave any fields blank', 'form' : form})
+            messages.success(request, "VIOLATION. Left one or more fields blank")
+            return redirect('job_form')
+    
+    
+    
+    
+    else:
+        #if user didn't POST a request I.E user only visited the page, display the form
+        form = CreateJobForm()
+        return render(request, 'createjob/createjob.html', {'form': form, 'job_category': job_category})
 
-            if job:
-                job.save()
-                print('Job Created')
-            else:
-                print("Error creating job")
-                
-            return HttpResponse("<h1>SUCCESS</h1>")
+
+
+
+def jobs(request):
+    return HttpResponse("<h1>SUCCESS</h1>")
