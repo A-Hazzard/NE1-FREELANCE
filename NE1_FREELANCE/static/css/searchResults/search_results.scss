@@ -3,36 +3,57 @@
     padding: 0;
 }
 
-.search{
-    width: 30%;
-    margin-left: 1%;
-
-}
-.submit-btn{
-    background-color: #3e7258;
-    border-color: #3e7258;
-    margin-left: 2%;
-    
-}
-
-.form-select{
-    margin-left: 1%;
-}
-.job-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10%;
-    flex-direction: row;
-    border: 1px solid;
-    width: 100%;
-    margin: 5% auto;
-
-    .job-card {
-        border: 1px solid green;
-        width: 20%;
-        margin-bottom: 3%;
+nav{
+    padding: 1%;
+    margin-bottom: 2%;
+    a{
+        color: white;
     }
 }
+
+main{
+    margin: 0 auto;
+    // border: 1px solid;
+    width: 90%;
+
+    .top{
+        // border: 1px solid green;
+
+        .search-form{
+
+            .search-input-field{
+                width: 30%;
+                margin-left: 1%;
+            }
+            .search-btn{
+                background-color: #3e7258;
+                border-color: #3e7258;
+                margin-left: 2%;
+            }
+            .select-input-field{
+                margin-left: 1%;
+            }
+        }
+    }   
+   
+    .job-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 10%;
+        width: 100%;
+        margin: 5% auto;
+        // border: 1px solid green;
+    
+        .job-card {
+            width: 15%;
+            // border: 1px solid red;
+            margin-bottom: 3%;
+        }
+    }
+}
+
+
 
 // input:invalid{
 //     animation: shake .3s;
