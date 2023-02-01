@@ -7,6 +7,7 @@ from .views import jobForm, success
 
 urlpatterns = [
     path('', jobForm, name = "job_form"),
-    path('created=True/', success, name = 'create_job'),
+    path('created=True/', success, name = 'success'),
+    
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

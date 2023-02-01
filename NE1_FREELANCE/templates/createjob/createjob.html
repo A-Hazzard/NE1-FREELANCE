@@ -20,6 +20,7 @@
          <ul >
              <li><a href="{% url 'about_us' %}">About</a></li>
              <li><a href="{% url 'contact' %}">Contact</a></li>
+             <li><a href="{% url 'search_jobs' %}">Search</a></li>
 
                  <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,10 +46,10 @@
 
 
 
-    <form method="GET" action = "{% url 'create_job' %}" id="job_form" > 
+    <form method="GET" action = "{% url 'success' %}" id="job_form" > 
         <h1>CREATE A JOB</h1>
         {% csrf_token %}
-        {% if error %}
+        <!-- {% if error %}
                 <p style = "color: red; font-size: 1rem;">{{ error }}</p>
             {% endif %}
         <label class="required" for="id_title">Title: </label> <br>
@@ -68,23 +69,27 @@
             <option value="">--------</option>
             {% for category in job_category %}
 
-                <!-- for each category in the categories table stored in the database, 
+                 for each category in the categories table stored in the database, 
                     create an option element with the category name as the value and text, 
-                    and if the category name matches the category_name variable, add the "selected" attribute -->
-                    
+                    and if the category name matches the category_name variable, add the "selected" attribute 
+                     
                 <option value="{{ category.name }}" 
                     {% if category.name == category_name %}
                         selected
                     {% endif %}
                 >{{ category.name }}</option>
             {% endfor %}
-        </select>
-    <br>
-        <input type="submit" value="Save" class="default" name="_save">       
+        </select> -->
+    
+        {{ form.as_p }}
+        <br>
+        <input type="submit" value="Save" class="default">       
     
         </form>
 
 
+
+<!-- templates/create_job.html -->
 
 
 

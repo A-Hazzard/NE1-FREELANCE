@@ -13,4 +13,4 @@ class Job(models.Model):
     category = models.ForeignKey(JobCategory, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return self.title + " $" + str(self.price)
