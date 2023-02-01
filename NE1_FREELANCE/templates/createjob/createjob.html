@@ -91,12 +91,18 @@
 
 
 
-<!-- templates/create_job.html -->
+         <!-- The escapejs filter is used to escape JavaScript code in a Django template. It replaces characters 
+         like <, >, &, ', ", and / with their corresponding HTML entities, making it safe to include in a 
+         JavaScript string. This is important to prevent cross-site scripting (XSS) attacks, where malicious 
+         scripts are injected into a web page. By using the escapejs filter, the string is escaped so that any 
+         harmful characters are transformed into harmless text and can't be executed as code. -->
 
  {% if messages %}
     {% for message in messages %}
         {% if forloop.counter == 1 %}
-        <script>alert("{{message}}")</script>
+        
+        <script>alert("{{message|escapejs}}")</script> 
+        
         {% endif %}
     {% endfor %}
  {% endif %}

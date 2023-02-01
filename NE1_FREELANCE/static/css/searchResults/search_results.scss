@@ -1,19 +1,37 @@
-div.job-list {
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.search{
+    width: 30%;
+    margin-left: 1%;
+
+}
+.submit-btn{
+    background-color: #3e7258;
+    border-color: #3e7258;
+    margin-left: 2%;
+    
+}
+
+.form-select{
+    margin-left: 1%;
+}
+.job-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10%;
-}
-
-div.job {
-    width: 300px;
-    height: 200px;
-    margin: 10px;
-}
-
-div.job-list {
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid;
+    width: 100%;
+    margin: 5% auto;
+
+    .job-card {
+        border: 1px solid green;
+        width: 20%;
+        margin-bottom: 3%;
+    }
 }
 
 // input:invalid{

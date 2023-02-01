@@ -19,7 +19,7 @@ def jobForm(request):
             return redirect('jobs')
         else:
             # return render(request, 'createjob/createjob.html', {'error' : 'Dont leave any fields blank', 'form' : form})
-            messages.success(request, "VIOLATION. Left one or more fields blank")
+            messages.success(request, "Don't leave fields blank")
             return redirect('job_form')
     
     
