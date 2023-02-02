@@ -50,7 +50,8 @@ def register_user(request):
             messages.success(request, ("Registration Successful"))
 
             return redirect("search_jobs")
-    
+        else:
+            message.success(request, ("Registration Failed"))
     else:
         form = RegisterUserForm()
     return render(request, 'members/signup.html', {'form': form})

@@ -25,10 +25,12 @@
  {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
     
  <nav class="logged_in-navbar" style="background-color: rgb(33,37,41)">
-    <ul class="nav nav-tabs" style="margin-left: 82%;">
+    <ul class="nav nav-tabs" style="margin-left: 75%;">
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{user.username}}</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+            <i class="fa-solid fa-circle active-status"></i>{{user.username}}
+        </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>
             <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
@@ -42,7 +44,9 @@
  </nav>
 {% else %}
  <nav class="logged_out-navbar" style="background-color: rgb(33,37,41)">
-     <ul style="margin-left: 82%;">
+    <ul class="nav nav-tabs" style="margin-left: 75%;">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
+
         <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
                  <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login/Signup</a></li>

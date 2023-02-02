@@ -48,6 +48,16 @@ main .job-list .job-card {
   align-items: center;
   justify-content: center;
 }
+main .job-list .job-card .thumbnail-container {
+  height: 50%;
+  width: 100%;
+}
+main .job-list .job-card .thumbnail-container img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 main .job-list .job-card .details {
   width: 100%;
   padding: 3%;
@@ -64,11 +74,4 @@ main .job-list .job-card .details .username {
 }
 main .job-list .job-card .details .price {
   text-align: center;
-}
-main .job-list .job-card .details .thumbnail-container {
-  height: 50%;
-}
-main .job-list .job-card .details .thumbnail-container img {
-  -o-object-fit: contain;
-     object-fit: contain;
 }/*# sourceMappingURL=search_results.css.map */

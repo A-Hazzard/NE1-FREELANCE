@@ -44,44 +44,51 @@ main{
         width: 100%;
         margin: 5% auto;
         padding-left: 3%;
-        // border: 1px solid green;
     
         .job-card {
             display: flex;
             flex-direction: column;
             width: 22%;
             margin-bottom: 3%;
-            // border: 1px solid grey;
+            // border: 5px solid green;
             overflow: hidden;
             align-items: center;
             justify-content: center;
-
+    
+            .thumbnail-container {
+                height: 50%;
+                width: 100%;
+                
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+    
             .details {
-                // border: 2px solid grey;
                 width: 100%;
                 padding: 3%;
                 border: .5px solid rgb(224, 224, 224);
                 border-top: none;
                 border-bottom-left-radius: .5rem;
                 border-bottom-right-radius: .5rem;
-                .title{
+    
+                .title {
                     font-size: 1.1rem;
                 }
     
-                .username{
+                .username {
                     font-size: .9rem;
                 }
-
-                .price{
+    
+                .price {
                     text-align: center;
                 }
-    
-                .thumbnail-container{height: 50%; img{object-fit: contain;} }
-            }
-
-            
-        }
+            } //end details
+        } //end job-card
     }
+    
 }
 
 
