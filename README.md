@@ -30,16 +30,10 @@ Run ``` git clone https://github.com/A-Hazzard/SoftwareEngineering2.git ``` in y
 6. Apply migrations
 ``` python manage.py migrate ```
 
-7. Install ckeditor
-``` pip install django-ckeditor ```
-
-8. pip install fuzzywuzzy
-``` pip install fuzzywuzzy ```
-
-9. Start the development server 
+7. Start the development server 
 ```python manage.py runserver ```
 
-10. Open your web browser and visit [localhost url](http://127.0.0.1:8000/) usually "localhost:8000"
+8. Open your web browser and visit [localhost url](http://127.0.0.1:8000/) usually "localhost:8000"
 
 ## Contributions
 Any contributions to the code and improvements to the project are welcome. Feel free to fork the repository and make changes.
