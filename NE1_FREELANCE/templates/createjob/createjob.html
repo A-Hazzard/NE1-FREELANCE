@@ -79,7 +79,7 @@
 
                                 <!--Create job form-->
 
-    <form method="POST" action = "{% url 'job_form' %}" id="job_form" > 
+    <form method="POST" action = "{% url 'job_form' %}" id="job_form" enctype="multipart/form-data"> 
         <h1>CREATE A JOB</h1>
         {% csrf_token %}
             {{ form.as_p }}

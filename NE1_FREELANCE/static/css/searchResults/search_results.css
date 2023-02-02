@@ -15,6 +15,9 @@ main {
   margin: 0 auto;
   width: 90%;
 }
+main .top {
+  padding-left: 3%;
+}
 main .top .search-form .search-input-field {
   width: 30%;
   margin-left: 1%;

@@ -4,6 +4,7 @@ from django.contrib import messages
 from searchResults.models import Job, JobCategory
 from .forms import CreateJobForm
 
+
 # Create your views here.
 def jobForm(request):
     #Get all the job categories
@@ -12,13 +13,16 @@ def jobForm(request):
     #if the user sends a POST request I.E if they submit the form
     if request.method == 'POST':
         #Gather the data inputted from the form
-        form = CreateJobForm(request.POST)
+        form = CreateJobForm(request.POST, request.FILES)
 
+        print("Form data: ", form.data)
+        
         if form.is_valid():
+            print("Form is valid")
             form.save()
             return redirect('jobs')
         else:
-            # return render(request, 'createjob/createjob.html', {'error' : 'Dont leave any fields blank', 'form' : form})
+            print("Form is not valid")
             messages.success(request, "Don't leave fields blank")
             return redirect('job_form')
     
@@ -31,7 +35,7 @@ def jobForm(request):
         return render(request, 'createjob/createjob.html', {'form': form, 'job_category': job_category})
 
 
-
+        
 
 def jobs(request):
     return HttpResponse("<h1>SUCCESS</h1>")
