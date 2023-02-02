@@ -26,6 +26,7 @@ from contact import views as contact_view
 
 urlpatterns = [
     path('',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
+    path('home/',home_view.index, name = 'home_page'), #ne1freelance.com - Home page
     path('members/', include('django.contrib.auth.urls')), #django's library for user authentican
     path('members/', include('members.urls')), #ne1-freelance.com/members/ - Login/Signup
     

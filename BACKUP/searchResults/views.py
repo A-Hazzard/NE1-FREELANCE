@@ -43,7 +43,6 @@ def search_jobs(request):
         'corrected_term': corrected_term,
         'categories': categories,
         'category_name': category_name,
-        'registered' : True
     }
     print("\nFile:\n" + __file__ + "\n(LOG): Category:", category_name, "\n")
 

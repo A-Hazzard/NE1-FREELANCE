@@ -1,17 +1,77 @@
-div.job-list {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  padding: 1%;
+  margin-bottom: 2%;
+}
+nav a {
+  color: white;
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+}
+main .top {
+  padding-left: 3%;
+}
+main .top .search-form .search-input-field {
+  width: 30%;
+  margin-left: 1%;
+}
+main .top .search-form .search-btn {
+  background-color: #3e7258;
+  border-color: #3e7258;
+  margin-left: 2%;
+}
+main .top .search-form .select-input-field {
+  margin-left: 1%;
+}
+main .job-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-div.job {
-  width: 300px;
-  height: 200px;
-  margin: 10px;
-}
-
-div.job-list {
   flex-direction: row;
+  gap: 3%;
+  width: 100%;
+  margin: 5% auto;
+  padding-left: 3%;
+}
+main .job-list .job-card {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  margin-bottom: 3%;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
+}
+main .job-list .job-card .thumbnail-container {
+  height: 50%;
+  width: 100%;
+}
+main .job-list .job-card .thumbnail-container img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+main .job-list .job-card .details {
+  width: 100%;
+  padding: 3%;
+  border: 0.5px solid rgb(224, 224, 224);
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+main .job-list .job-card .details .title {
+  font-size: 1.1rem;
+}
+main .job-list .job-card .details .username {
+  font-size: 0.9rem;
+}
+main .job-list .job-card .details .price {
+  text-align: center;
 }/*# sourceMappingURL=search_results.css.map */

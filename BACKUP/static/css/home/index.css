@@ -296,6 +296,10 @@ body {
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
+.main-container .getStarted .getStarted-btn a {
+  text-decoration: none;
+  color: black;
+}
 .main-container .getStarted .getStarted-btn:hover {
   transform: scale(1.1);
 }

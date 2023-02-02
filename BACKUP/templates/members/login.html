@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/18479e6558.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> <!--getbootstrap.com-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--Jquery-->
+    <script src="https://kit.fontawesome.com/18479e6558.js" crossorigin="anonymous"></script> <!--Font awesome for icons-->
+
     <title>NE1-FREELANCE - Login</title>
 </head>
 <body>
 
   <style>
     form{
-      width: 25%;
+      width: 30%;
       margin: 10% auto;
     }
 
@@ -22,7 +29,55 @@
 
     }
   </style>
- 
+ <!-- Navigation bar with links to News, Sign in and Join -->
+ {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
+    
+ <nav class="logged_in-navbar" style="background-color: rgb(33,37,41)">
+    <ul class="nav nav-tabs">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+            <i class="fa-solid fa-circle active-status"></i>{{user.username}}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about_us' %}">About us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'search_jobs' %}">Search</a></li>
+
+    
+      </ul>
+ </nav>
+{% else %}
+ <nav class="logged_out-navbar" style="background-color: rgb(33,37,41)">
+  <ul class="nav nav-tabs" style="margin-left: 78%;">
+    <li class="nav-item"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
+
+         <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
+             <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+             <li class="nav-item"><a class="nav-link" href="{% url 'search_jobs' %}">Search</a></li>
+
+     </ul>
+ </nav>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
     <form method="POST" action="{% url 'login' %}">
       {% if messages %}
       {% for message in messages %}
@@ -52,7 +107,7 @@
       <input type="password" class="form-control" id="password" name = "password" placeholder="********">
     </div>
     <div class="col-12">
-      <p>Already a member? <a href = "{% url 'register' %}">Sign up</a></p>
+      <p>Need an Account?<a href = "{% url 'register' %}">Sign up</a></p>
     </div>
     <div class="col-12">
       <button class="btn btn-primary submit-btn" type="submit">Login</button>
@@ -60,6 +115,5 @@
 
     
   </form>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
