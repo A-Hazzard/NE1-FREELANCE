@@ -113,14 +113,27 @@
                                 {% for job in jobs %}
                                     <!-- container for each job item -->
                                     <div class="job-card">
-                                        <!-- display the job title -->
-                                        <h3>{{ job.title }}</h3>
-                                        <!-- display the job description -->
-                                        <p><b>Summary:</b>{{ job.description }}</p>
-                                        <!-- display the job price -->
-                                        <p><b>Price:</b> ${{ job.price }}</p>
-                                        <!-- display the job category -->
-                                        <p><b>Category:</b> {{ job.category }}</p>
+                                        <!--Display the job's thumbnail-->
+                                        <div class="thumbnail-container">
+                                            <img src="{% static 'images/thumbnail.webp'  %}" alt="">
+                                        </div>
+
+                                        <div class="details">
+                                                    <!-- display the job title -->
+                                                <h3 class="title">{{ job.title }}</h3>
+                                                
+                                                <p class="username"><b style="margin-right: 1%;">User:</b> {{ user.username }}</p>
+                                                <!-- display the job description -->
+                                                <p class="description">{{ job.description }}</p>
+                                                <!-- display the job price -->
+                                                <!-- display the job category -->
+                                                <p class="category"><b>Type:</b> {{ job.category }}</p>
+
+                                                <hr style="background-color: rgb(224, 224, 224);">
+                                                <p class="price">${{ job.price }}</p>
+
+                                        </div>
+                                       
                                     </div>
                                 {% endfor %}
                             </div>

@@ -31,11 +31,41 @@ main .job-list {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 10%;
+  gap: 3%;
   width: 100%;
   margin: 5% auto;
+  padding-left: 3%;
 }
 main .job-list .job-card {
-  width: 15%;
+  display: flex;
+  flex-direction: column;
+  width: 22%;
   margin-bottom: 3%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+main .job-list .job-card .details {
+  width: 100%;
+  padding: 3%;
+  border: 0.5px solid rgb(224, 224, 224);
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+main .job-list .job-card .details .title {
+  font-size: 1.1rem;
+}
+main .job-list .job-card .details .username {
+  font-size: 0.9rem;
+}
+main .job-list .job-card .details .price {
+  text-align: center;
+}
+main .job-list .job-card .details .thumbnail-container {
+  height: 50%;
+}
+main .job-list .job-card .details .thumbnail-container img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=search_results.css.map */

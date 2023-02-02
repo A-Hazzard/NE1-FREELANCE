@@ -40,15 +40,46 @@ main{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        gap: 10%;
+        gap: 3%;
         width: 100%;
         margin: 5% auto;
+        padding-left: 3%;
         // border: 1px solid green;
     
         .job-card {
-            width: 15%;
-            // border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            width: 22%;
             margin-bottom: 3%;
+            // border: 1px solid grey;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+
+            .details {
+                // border: 2px solid grey;
+                width: 100%;
+                padding: 3%;
+                border: .5px solid rgb(224, 224, 224);
+                border-top: none;
+                border-bottom-left-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+                .title{
+                    font-size: 1.1rem;
+                }
+    
+                .username{
+                    font-size: .9rem;
+                }
+
+                .price{
+                    text-align: center;
+                }
+    
+                .thumbnail-container{height: 50%; img{object-fit: contain;} }
+            }
+
+            
         }
     }
 }
