@@ -1,33 +1,52 @@
 <!-- Navigation bar with links to News, Sign in and Join -->
+<script src="https://kit.fontawesome.com/18479e6558.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <style>
     
 </style>
- <!-- Navigation bar with links to News, Sign in and Join -->
- {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
- <nav class="logged_in-navbar">
-     <ul >
-         <li><a href="{% url 'about_us' %}">About</a></li>
-         <li><a href="{% url 'contact' %}">Contact</a></li>
+<!-- Navigation bar with links to News, Sign in and Join -->
+{% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
+    
+<nav class="logged_in-navbar" style="background-color: rgb(33,37,41)">
+   <ul class="nav nav-tabs">
 
-             <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     {{user.username}}
-                 </a>
-                 <ul class="dropdown-menu">
-                   <li><a class="dropdown-item"  href="{% url 'job_form' %}">Create job</a></li>
-                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-                 </ul>
-             </li>
+       <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{user.username}}</a>
+         <ul class="dropdown-menu">
+           <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>
+           <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+         </ul>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'about_us' %}">About us</a>
+       </li>
+       <li class="nav-item">
+           <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+         </li>
+   
      </ul>
- </nav>
+</nav>
 {% else %}
- <nav class="logged_out-navbar">
-     <ul>
-         <li><a href="{% url 'about_us' %}">About</a></li>
-             <li><a href="{% url 'contact' %}">Contact</a></li>
-                 <li><a href="{% url 'login' %}">Login/Signup</a></li>
-     </ul>
- </nav>
+<nav class="logged_out-navbar" style="background-color: rgb(33,37,41)">
+    <ul>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login/Signup</a></li>
+    </ul>
+</nav>
 {% endif %}
+   <form method="POST" action="{% url 'login' %}">
+     {% if messages %}
+     {% for message in messages %}
+     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+       <strong>
+         <i class="fa-solid fa-triangle-exclamation"></i>
+         {{ message }}</strong> 
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+   
+     
+     {% endfor%}
+   {% endif %}
 
 

@@ -6,11 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
-.nav-bar{
-  margin-bottom: 40%;
-  float: right;
-  position:relative;
-}
+
 .image{
   position: relative;
   float:left;
