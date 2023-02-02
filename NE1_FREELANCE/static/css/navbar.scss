@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.logged_in-navbar, .logged_out-navbar{
+    background-color: rgb(33,37,41);
+    padding: 1%;
+    padding-bottom: 0;
+    font-size: 1rem;
+
+    .nav{
+        margin-left: 75%;
+    }
+    .active-status{
+        color: rgb(0, 255, 0);
+        font-size: .5em;
+        margin-right: 5%;
+    }
+
+    .dropdown-menu{
+        background-color: rgb(33,37,41);
+        border-radius: .4rem;
+
+    }
+        a{
+            color: white;
+        }
+}
+
+nav *{
+    border-bottom: none !important;
+}

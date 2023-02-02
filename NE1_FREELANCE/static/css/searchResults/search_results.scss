@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    padding: 1%;
+    margin-bottom: 2%;
+    a{
+        color: white;
+    }
+}
+
+main{
+    margin: 0 auto;
+    // border: 1px solid;
+    width: 90%;
+
+    .top{
+        // border: 1px solid green;
+        padding-left: 3%;
+        .search-form{
+
+            .search-input-field{
+                width: 30%;
+                margin-left: 1%;
+            }
+            .search-btn{
+                background-color: #3e7258;
+                border-color: #3e7258;
+                margin-left: 2%;
+            }
+            .select-input-field{
+                margin-left: 1%;
+            }
+        }
+    }   
+   
+    .job-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 3%;
+        width: 100%;
+        margin: 5% auto;
+        padding-left: 3%;
+    
+        .job-card {
+            display: flex;
+            flex-direction: column;
+            width: 22%;
+            margin-bottom: 3%;
+            // border: 5px solid green;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+    
+            .thumbnail-container {
+                height: 50%;
+                width: 100%;
+                
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+    
+            .details {
+                width: 100%;
+                padding: 3%;
+                border: .5px solid rgb(224, 224, 224);
+                border-top: none;
+                border-bottom-left-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+    
+                .title {
+                    font-size: 1.1rem;
+                }
+    
+                .username {
+                    font-size: .9rem;
+                }
+    
+                .price {
+                    text-align: center;
+                }
+            } //end details
+        } //end job-card
+    }
+    
+}
+
+
+
+// input:invalid{
+//     animation: shake .3s;
+// }
+
+// @keyframes shake {
+//     25% { transform: translateX(4px); }
+//     50% { transform: translateX(-4px); }
+//     75% { transform: translateX(4px); }
+
+// }

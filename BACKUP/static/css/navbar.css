@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logged_in-navbar, .logged_out-navbar {
+  background-color: rgb(33, 37, 41);
+  padding: 1%;
+  padding-bottom: 0;
+  font-size: 1rem;
+}
+.logged_in-navbar .nav, .logged_out-navbar .nav {
+  margin-left: 75%;
+}
+.logged_in-navbar .active-status, .logged_out-navbar .active-status {
+  color: rgb(0, 255, 0);
+  font-size: 0.5em;
+  margin-right: 5%;
+}
+.logged_in-navbar .dropdown-menu, .logged_out-navbar .dropdown-menu {
+  background-color: rgb(33, 37, 41);
+  border-radius: 0.4rem;
+}
+.logged_in-navbar a, .logged_out-navbar a {
+  color: white;
+}
+
+nav * {
+  border-bottom: none !important;
+}/*# sourceMappingURL=navbar.css.map */
