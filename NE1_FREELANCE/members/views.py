@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 from .forms import RegisterUserForm
 
 def login_user(request):
-    print("\nVisited")
+    print("\nLogin Visited")
+
+    if request.user.is_authenticated: #if user is logged in redirect them
+        return redirect('search_jobs')
 
     if request.method == 'POST':
         print("\nLogin Form Submitted\n")
@@ -38,6 +43,10 @@ def logout_user(request):
     return redirect('home_page')
 
 def register_user(request):
+
+    if request.user.is_authenticated: #if user is logged in redirect them
+        return redirect('search_jobs')
+
     if request.method == 'POST':
         form = RegisterUserForm(request.POST)
 
@@ -59,3 +68,8 @@ def register_user(request):
     else:
         form = RegisterUserForm()
     return render(request, 'members/signup.html', {'form': form})
+
+def user_profile(request):
+    user = request.user.username
+    userEmail = request.user.email
+    return HttpResponse("<h1>User settings: Name: " + str(user)  + " </h1><p>Email: " + str(userEmail)  + "</p>")

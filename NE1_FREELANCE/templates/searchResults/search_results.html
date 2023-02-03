@@ -21,8 +21,7 @@
 
     <!-- <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a> -->
 
- <!-- Navigation bar with links to News, Sign in and Join -->
- {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
+ <!-- {% if user.is_authenticated %} 
     
  <nav class="logged_in-navbar">
     <ul class="nav nav-tabs" style="margin-left: 75%;">
@@ -53,8 +52,9 @@
      </ul>
  </nav>
  
-{% endif %}
+{% endif %} -->
 
+{% include 'navbar.html' %}
             <main>
                     <div class="top">
                         {% if search_term %}

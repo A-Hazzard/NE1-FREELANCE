@@ -33,6 +33,6 @@ urlpatterns = [
     path('contact/', contact_view.contact, name = "contact"),
     path('search/', search_results.search_jobs, name = 'search_jobs'), #ne1freelance.com/search - Search page displaying jobs
     path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form
-    path('aboutus/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
+    path('about/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
     path('admin/', admin.site.urls), #ne1freelance.com/admin - Displays the admin page
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #used to link the static files ( css/js/images )
