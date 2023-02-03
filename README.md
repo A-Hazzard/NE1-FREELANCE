@@ -16,7 +16,7 @@ Follow these steps to set up the project on your local machine:
 
 Run ``` git clone https://github.com/A-Hazzard/SoftwareEngineering2.git ``` in your terminal or via the github application
 
-2. Navigate to the project directory ``` cd SoftwareEngineering2\NE1_FREELANCE ```
+2. Navigate to the project directory ``` cd NE1_FREELANCE ```
 ### Steps 3 and 4 are optional 
 3. Create a virtual environment
 ``` python3 -m venv venv ```
