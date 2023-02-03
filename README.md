@@ -40,7 +40,7 @@ Here's a step-by-step guide to setting up NE1-FREELANCE on your local machine:
 7. Start the development server:
 ``` python manage.py runserver ```
 
-8. Open your web browser and access the platform at the [localhost URL](localhost:8000), typically "localhost:8000".
+8. Open your web browser and access the platform at the [localhost URL](http://localhost:8000), typically "localhost:8000".
 
 ### Important Note: The website will not function as intended without running the development server. Additionally, much of the CSS was built with SASS, so you will need to install a SASS compiler if you plan on making style changes.
 
