@@ -14,7 +14,7 @@ To run this project locally, you need to have the following software installed o
 Follow these steps to set up the project on your local machine:
 1. Clone the repository to your local machine.
 
-Run ``` git clone https://github.com/A-Hazzard/SoftwareEngineering2.git ``` in your terminal or via the github application
+Run ``` git clone https://github.com/A-Hazzard/NE1-FREELANCE.git ``` in your terminal or via the github application
 
 2. Navigate to the project directory ``` cd NE1_FREELANCE ```
 ### Steps 3 and 4 are optional 
