@@ -14,37 +14,37 @@ To run this project locally, you need to have the following software installed o
 Follow these steps to set up the project on your local machine:
 1. Clone the repository to your local machine.
 
-Run ``` git clone https://github.com/A-Hazzard/NE1-FREELANCE.git ``` in your terminal or via the github application
+Run ``` git clone https://github.com/A-Hazzard/NE1-FREELANCE.git ``` in your terminal or via the github application.
 
-2. Navigate to the project directory ``` cd NE1-FREELANCE ```
-### Steps 3 and 4 are optional 
-3. Create a virtual environment
+2. Navigate to the project directory ``` cd NE1-FREELANCE ```.
+### Steps 3 and 4 are optional.
+
+3. Create a virtual environment.
 ``` python3 -m venv virtual_envrionment ``` where ``` virtual_environment ``` is the name of your virtual environment. You can name it anything. We typically name it that.
 
 4. 
-1. Activate the virtual environment (Unix/Linux-based systems)
-``` source venv/bin/activate ```
+1. Activate the virtual environment (Unix/Linux-based systems). 
+``` source virtual_environment/bin/activate ```
 
-2. Activate the virtual environment (Windows systems)
-```  .\virtual_environment\Scripts\activate ```
+2. Activate the virtual environment (Windows systems). 
+``` .\virtual_environment\Scripts\activate ```.
 
-5. Install the required packages
-``` pip install -r requirements.txt ```
+5. Install the required packages. 
+``` pip install -r requirements.txt ``
 
-6. Apply migrations
+6. Apply database migrations. 
 ``` python manage.py migrate ```
 
-7. Start the development server 
+7. Start the development server. 
 ```python manage.py runserver ```
 
-8. Open your web browser and visit [localhost url](http://127.0.0.1:8000/) usually "localhost:8000"
+8. Open your web browser and visit your [localhost url](http://127.0.0.1:8000/). Usually "localhost:8000".
 
-#### Please note that without running the server the website will not work as intended, additionally most css was made with sass, therefore if you are styling
-you would need to install a SASS compiler 
+#### Please note that without running the server the website will not work as intended, additionally most css was made with sass, therefore if you are styling you would need to install a SASS compiler. 
 
 ## Contributions
 Any contributions to the code and improvements to the project are welcome. Feel free to fork the repository and make changes.
-You can also feel free to get in contact with me for any further assitance or queries. Social Media is linked on my profile
+You can also feel free to get in contact with me for any further assitance or queries. Social Media is linked on my profile. 
 
 ## Author
 Aaron Hazzard
