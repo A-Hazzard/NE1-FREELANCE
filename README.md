@@ -19,10 +19,14 @@ Run ``` git clone https://github.com/A-Hazzard/NE1-FREELANCE.git ``` in your ter
 2. Navigate to the project directory ``` cd NE1-FREELANCE ```
 ### Steps 3 and 4 are optional 
 3. Create a virtual environment
-``` python3 -m venv venv ```
+``` python3 -m venv virtual_envrionment ``` where ``` virtual_environment ``` is the name of your virtual environment. You can name it anything. We typically name it that.
 
-4. Activate the virtual environment
+4. 
+1. Activate the virtual environment (Unix/Linux-based systems)
 ``` source venv/bin/activate ```
+
+2. Activate the virtual environment (Windows systems)
+```  .\virtual_environment\Scripts\activate ```
 
 5. Install the required packages
 ``` pip install -r requirements.txt ```
