@@ -1,4 +1,6 @@
 # NE1-FREELANCE: Made with Django
+![image](https://user-images.githubusercontent.com/62683196/216718671-c5618604-ad2c-4723-b191-1feb053ed94e.png)
+
 A web-based freelancing platorm built using Django, a high-level Python web framework. This project allows users to post job listings and view job listings posted by other users.
 ## Features
 - User authentication (sign up, login, logout)
