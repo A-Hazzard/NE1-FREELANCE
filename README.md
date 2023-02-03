@@ -1,53 +1,51 @@
-# NE1-FREELANCE: Made with Django
+# NE1-FREELANCE: A Professional Web-Based Freelancing Platform Built with Django
 ![image](https://user-images.githubusercontent.com/62683196/216718671-c5618604-ad2c-4723-b191-1feb053ed94e.png)
 
-A web-based freelancing platorm built using Django, a high-level Python web framework. This project allows users to post job listings and view job listings posted by other users.
-## Features
-- User authentication (sign up, login, logout)
-- Job listing creation, editing and deletion
-- Search for jobs based on job title, description and category
-- Display job listings in a grid format with job title, description, category, user, and price
+NE1-FREELANCE is a feature-rich and user-friendly open source freelancing platform designed to make the job search process more efficient and accessible. Built with the robust and reliable Django framework, this project delivers a seamless experience for freelancers and employers alike.
+
+## Key Features
+- Secure User Authentication: Effortless sign-up, login, and logout with user-friendly interface.
+- Job Listing Management: Create, edit, and delete job listings with ease.
+- Search Functionality: Find the perfect job quickly with advanced search options such as job title, description, and category.
+- User-Friendly Display: View job listings in a visually appealing grid format with key details such as job title, description, category, user, and price.
+
 ## Getting Started
-To run this project locally, you need to have the following software installed on your computer:
+Before setting up the project locally, make sure you have the following software installed on your computer:
 - Python 3.x
-- pip (package manager for Python)
+- pip (Python package manager)
 - virtualenv (optional but recommended)
 
-Follow these steps to set up the project on your local machine:
-1. Clone the repository to your local machine.
+Here's a step-by-step guide to setting up NE1-FREELANCE on your local machine:
 
-Run ``` git clone https://github.com/A-Hazzard/NE1-FREELANCE.git ``` in your terminal or via the github application.
+1. Clone the repository to your local machine by running the following command in your terminal or via the GitHub application:
+``` git clone https://github.com/A-Hazzard/NE1-FREELANCE.git ```
 
-2. Navigate to the project directory ``` cd NE1-FREELANCE ```.
-### Steps 3 and 4 are optional.
+2. Navigate to the project directory: 
+``` cd NE1-FREELANCE ```
+### Note: Steps 3 and 4 are optional but highly recommended for optimal performance.
 
-3. Create a virtual environment.
-``` python3 -m venv virtual_envrionment ``` where ``` virtual_environment ``` is the name of your virtual environment. You can name it anything. We typically name it that.
+3. Create a virtual environment:
+``` python3 -m venv virtual_environment ``` where ``` virtual_environment ``` is the name of your virtual environment. You can name it anything you like.
 
-4. 
-1. Activate the virtual environment (Unix/Linux-based systems). 
-``` source virtual_environment/bin/activate ```
+4. Activate the virtual environment:
+- For Unix/Linux-based systems: ``` source virtual_environment/bin/activate ```
+- For Windows systems: ``` .\virtual_environment\Scripts\activate ```
 
-2. Activate the virtual environment (Windows systems). 
-``` .\virtual_environment\Scripts\activate ```.
+5. Install the required packages:
+``` pip install -r requirements.txt ```
 
-5. Install the required packages. 
-``` pip install -r requirements.txt ``
-
-6. Apply database migrations. 
+6. Apply database migrations:
 ``` python manage.py migrate ```
 
-7. Start the development server. 
-```python manage.py runserver ```
+7. Start the development server:
+``` python manage.py runserver ```
 
-8. Open your web browser and visit your [localhost url](http://127.0.0.1:8000/). Usually "localhost:8000".
+8. Open your web browser and access the platform at the [localhost URL](localhost:8000), typically "localhost:8000".
 
-#### Please note that without running the server the website will not work as intended, additionally most css was made with sass, therefore if you are styling you would need to install a SASS compiler. 
+### Important Note: The website will not function as intended without running the development server. Additionally, much of the CSS was built with SASS, so you will need to install a SASS compiler if you plan on making style changes.
 
-## Contributions
-Any contributions to the code and improvements to the project are welcome. Feel free to fork the repository and make changes.
-You can also feel free to get in contact with me for any further assitance or queries. Social Media is linked on my profile. 
+## Contributions Welcome
+NE1-FREELANCE is an open source project and contributions from the community are always welcome. If you would like to contribute or have any questions, feel free to fork the repository and make changes, or get in touch with the author via social media links on their profile.
 
 ## Author
 Aaron Hazzard
-
