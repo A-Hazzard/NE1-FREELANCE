@@ -9,11 +9,13 @@ from .forms import CreateJobForm
 def jobForm(request):
     # Get all the job categories
     job_category = JobCategory.objects.all()
+    print('\nPath:', request.build_absolute_uri , "\n")       
 
     # if the user sends a POST request I.E if they submit the form
     if request.method == 'POST':
         # Gather the data inputted from the form
         form = CreateJobForm(request.POST, request.FILES)
+     
 
         if form.is_valid():
             job = form.save(commit=False)

@@ -6,12 +6,16 @@ from django.contrib import messages
 from .forms import RegisterUserForm
 
 def login_user(request):
-    print("visited\n\n")
+    print("\nVisited")
+
     if request.method == 'POST':
         print("\nLogin Form Submitted\n")
         username = request.POST['username']
         password = request.POST['password']
+
         user = authenticate(request, username = username, password = password)
+        
+
         #check if user has entered all input fields
         if user is not None:
             login(request, user)

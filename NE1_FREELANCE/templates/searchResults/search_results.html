@@ -103,7 +103,11 @@
                         </form>
                     </div>
                         
-
+                    {% if protocol %}
+                        <script>
+                            alert("Security Issue! {{ protocol }}")
+                        </script>
+                        {% endif %}
 
                         {% if jobs %}
                             <!-- flex-container for the job listing -->
