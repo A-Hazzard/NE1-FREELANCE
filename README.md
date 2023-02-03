@@ -45,7 +45,7 @@ Here's a step-by-step guide to setting up NE1-FREELANCE on your local machine:
 ### Important Note: The website will not function as intended without running the development server. Additionally, much of the CSS was built with SASS, so you will need to install a SASS compiler if you plan on making style changes.
 
 ## Contributions Welcome
-NE1-FREELANCE is an open source project and contributions from the community are always welcome. If you would like to contribute or have any questions, feel free to fork the repository and make changes, or get in touch with the author via social media links on their profile.
+NE1-FREELANCE is an open source project and contributions from the community are always welcome. If you would like to contribute or have any questions, feel free to fork the repository and make changes, or get in touch with the author via social media, links on their profile.
 
 ## Author
 Aaron Hazzard
