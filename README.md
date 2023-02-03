@@ -35,6 +35,9 @@ Run ``` git clone https://github.com/A-Hazzard/SoftwareEngineering2.git ``` in y
 
 8. Open your web browser and visit [localhost url](http://127.0.0.1:8000/) usually "localhost:8000"
 
+#### Please note that without running the server the website will not work as intended, additionally most css was made with sass, therefore if you are styling
+you would need to install a SASS compiler 
+
 ## Contributions
 Any contributions to the code and improvements to the project are welcome. Feel free to fork the repository and make changes.
 You can also feel free to get in contact with me for any further assitance or queries. Social Media is linked on my profile
