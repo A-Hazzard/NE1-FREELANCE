@@ -7,6 +7,7 @@ from fuzzywuzzy import process
 
 def search_jobs(request):
     search_term = request.GET.get('search')
+    
     if search_term is None:
         search_term = ''
         print("File:\n" + __file__ + "\n(LOG): User didn't search for anything")
@@ -36,6 +37,7 @@ def search_jobs(request):
         corrected_term = search_term
     
     categories = JobCategory.objects.all()
+    print('\nPath:', request.content_type, "\n")        
     context = {
         'jobs': jobs,
         'search_term': search_term,

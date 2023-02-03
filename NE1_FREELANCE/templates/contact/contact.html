@@ -19,42 +19,10 @@
 
 
     <body>
-        
-        <div class="container">
- <!-- Navigation bar with links to News, Sign in and Join -->
- {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
-    
- <nav class="logged_in-navbar">
-    <ul class="nav nav-tabs" style="margin-left: 63%;">
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-            <i class="fa-solid fa-circle active-status"></i>{{user.username}}
-        </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>
-            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-          </ul>
-        </li>
-            
-            <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'search_jobs' %}">Search</a></li>
-        
-      </ul>
- </nav>
-{% else %}
- <nav class="logged_out-navbar">
-  <ul class="nav nav-tabs" style="margin-left: 52%;">
-    <li class="nav-item"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login/Signup</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'search_jobs' %}">Search</a></li>
-     </ul>
- </nav>
+        <div class="container">
+            {% include 'navbar.html' %}
  
-{% endif %}
             <div class="content">
                 <div class="left-side">
                 <div class="contacts">
