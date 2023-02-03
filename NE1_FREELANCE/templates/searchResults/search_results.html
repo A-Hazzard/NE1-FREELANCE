@@ -24,12 +24,12 @@
  <!-- Navigation bar with links to News, Sign in and Join -->
  {% if user.is_authenticated %} <!--Check if user is logged in or logged out-->
     
- <nav class="logged_in-navbar" style="background-color: rgb(33,37,41)">
+ <nav class="logged_in-navbar">
     <ul class="nav nav-tabs" style="margin-left: 75%;">
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-            <i class="fa-solid fa-circle active-status"></i>{{user.username}}
+            <i class="fa-solid fa-circle {% if user.is_active %}active-status{% endif %}"></i>{{user.username}}
         </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>
@@ -43,7 +43,7 @@
       </ul>
  </nav>
 {% else %}
- <nav class="logged_out-navbar" style="background-color: rgb(33,37,41)">
+ <nav class="logged_out-navbar">
     <ul class="nav nav-tabs" style="margin-left: 75%;">
         <li class="nav-item"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
 
@@ -126,7 +126,7 @@
                                                     <!-- display the job title -->
                                                 <h3 class="title">{{ job.title }}</h3>
                                                 
-                                                <p class="username"><b style="margin-right: 1%;">User:</b> {{ user.username }}</p>
+                                                <p class="username"><b style="margin-right: 1%;">User:</b> {{ job.user.username }}</p>
                                                 <!-- display the job description -->
                                                 <p class="description">{{ job.description }}</p>
                                                 <!-- display the job price -->

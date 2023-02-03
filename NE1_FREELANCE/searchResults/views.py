@@ -21,7 +21,7 @@ def search_jobs(request):
         category = JobCategory.objects.filter(name__iexact=category_name).first()
     
 
-    jobs = Job.objects.filter(Q(title__icontains=search_term) | Q(description__icontains=search_term))
+    jobs = Job.objects.filter(Q(title__icontains=search_term) | Q(description__icontains=search_term)) #| Q(user__icontains=search_term))
     if category:
         jobs = jobs.filter(category=category)
 
