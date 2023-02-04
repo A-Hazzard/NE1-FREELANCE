@@ -39,32 +39,35 @@
 <!-- Navigation bar with links to News, Sign in and Join -->
 {% include 'navbar.html' %}
 
-        {% if messages %}
-          {% for message in messages %}
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>
-              <i class="fa-solid fa-triangle-exclamation"></i>
-              {{ message }}</strong> 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div> 
-          {% endfor%}
-        {% endif %}
-          
+    
+        
 
-      <form action="{% url 'register' %}" method="POST">
-            <h1 class="signup-header">Sign up</h1>
-            {% csrf_token %}
+<form action="{% url 'register' %}" method="POST">
+  {% if form.errors %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          {{ form.errors.as_text }}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> 
+  {% endif %}
+  
+  <h1 class="signup-header">Sign up</h1>
+  {% csrf_token %}
 
-              {{form.as_p}}
+  {{ form.as_p }}
 
-              <div class="col-12">
-                <p>Already a member? <a href = "{% url 'login' %}">Login</a></p>
-              </div>
+  
 
-              <div class="col-12">
-                <button class="btn btn-primary submit-btn" type="submit">Sign up</button>
-              </div>
-        </form>
+  <div class="col-12">
+      <p>Already a member? <a href="{% url 'login' %}">Login</a></p>
+  </div>
+
+  <div class="col-12">
+      <button class="btn btn-primary submit-btn" type="submit">Sign up</button>
+  </div>
+</form>
+
 
 
         

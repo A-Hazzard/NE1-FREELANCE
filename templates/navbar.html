@@ -1,7 +1,11 @@
 
 {% if request.user.is_authenticated %} 
     
- <nav class="logged_in-navbar">
+ <nav class="logged_in-navbar"
+ {% if request.path == '/members/profile/' %}
+ style=" height: 5%;"
+    {% endif %}
+ >
     <ul class="nav nav-tabs" 
         {% if request.path == '/contact/' %}
           style=" margin-left: 70%;"
@@ -10,19 +14,29 @@
               style=" margin-left: 78%;"
 
               {% elif request.path == '/search/' %}
-                style=" margin-left: 78%;"
+                style=" margin-left: 75%; padding-top: .5%;"
 
                 {% elif request.path == '/createjob/' %}
                   style=" margin-left: 70%;"
+                  {% elif request.path == '/members/profile/' %}
+                    style=" margin-left: 75%;"
         {% endif %}
+        
         >
 
         
 
         <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                <i class="fa-solid fa-circle {% if request.user.is_active %}active-status{% endif %}"></i>{{ request.user.username}}
-            </a>
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="padding-bottom: 5%;" >
+                <i class="fa-solid fa-circle {% if request.user.is_active %}active-status{% endif %}"></i>  
+                {% if not request.path == '/members/profile/' %}
+                <img class="nav-profile_picture" src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" > 
+                {% elif request.path == '/members/profile/'%}
+                <img class="nav-profile_picture" src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture" style="width: 10%; height: 15%;"
+                > 
+                {% endif %}
+                {{ request.user.username}}
+              </a>
 
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>

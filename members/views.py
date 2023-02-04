@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 from .forms import RegisterUserForm
+from .forms import ProfilePictureForm
+from .models import Profile
 
 def login_user(request):
     print("\nLogin Visited")
@@ -43,42 +45,55 @@ def logout_user(request):
     return redirect('home_page')
 
 def register_user(request):
-
-    if request.user.is_authenticated: #if user is logged in redirect them
+    if request.user.is_authenticated: # if user is logged in redirect them
         return redirect('search_jobs')
 
     if request.method == 'POST':
         form = RegisterUserForm(request.POST)
 
-
         if form.is_valid():
-            form.save()
+            user = form.save()
             username = form.cleaned_data['username']
-            # email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
-
-            user = authenticate(username = username, password = password)
+            user = authenticate(username=username, password=password)
+            profile = Profile.objects.create(user=user)
+            profile.save()
 
             login(request, user)
-            messages.success(request, ("Registration Successful"))
+            messages.success(request, "Registration Successful")
 
             return redirect("search_jobs")
         else:
-            message.success(request, ("Registration Failed"))
+            messages.success(request, "Registration Failed")
     else:
         form = RegisterUserForm()
     return render(request, 'members/signup.html', {'form': form})
 
 def user_profile(request):
-    user = request.user.username
-    userEmail = request.user.email
-
-    context = {
-        'user' : user,
-        'userEmail': userEmail
-    }
 
     if request.user.is_authenticated:
+        user = request.user.profile
+        userEmail = request.user.email
+        form = ProfilePictureForm(instance=user)
+        
+        if request.method == 'POST':
+         # Gather the data inputted from the form
+            form = ProfilePictureForm(request.POST, request.FILES, instance=user)
+
+            if form.is_valid():
+                form.save()
+
+        context = {
+            'user' : user,
+            'userEmail': userEmail,
+            'form' : form,
+        }
         return render(request, 'members/profile.html', context)
+
+            
     else:
         return redirect('home_page')
+
+    
+
+    

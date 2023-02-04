@@ -42,20 +42,14 @@
 
 
     <form method="POST" action="{% url 'login' %}">
-      {% if messages %}
-      {% for message in messages %}
+      {% if form.errors %}
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          {{ message }}</strong> 
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    
-      
-      {% endfor%}
-    {% endif %}
-      
-
+          <strong>
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              {{ form.errors.as_text }}</strong> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> 
+      {% endif %}
 
     <h1>Login</h1>
     {% csrf_token %}

@@ -33,8 +33,15 @@
 
                 <div class="top">
 
-                    <form method = "POST" class="img-container">
-                        <img src="{% static 'images/cleaning.jpg' %}" alt="profile picture">
+                    <form class="img-form" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+                            <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture">
+
+
+                        {% csrf_token %}
+
+                        {{form.as_p}}
+                        <button class="form-control" type="submit">Save Changes</button>
+
                     </form>
 
                             <div class="display-info">

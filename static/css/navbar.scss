@@ -2,20 +2,41 @@
     margin: 0;
     padding: 0;
 }
+
+
+.logged_in-navbar{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+
+    .active-status{
+        color: rgb(0, 255, 0);
+        font-size: .5em;
+        margin-right: 5%;
+    }
+
+    .nav-profile_picture{
+        width: 25%;
+        height: 60%;
+        border-radius: 50rem;
+    }
+
+    .dropdown-toggle{
+        width: 100%;
+    }
+
+    .dropdown-menu{
+        width: 10%;
+    }
+}
+
 .logged_in-navbar, .logged_out-navbar{
     background-color: rgb(33,37,41);
     padding: 1%;
     padding-bottom: 0;
     font-size: 1rem;
 
-    .nav{
-        margin-left: 75%;
-    }
-    .active-status{
-        color: rgb(0, 255, 0);
-        font-size: .5em;
-        margin-right: 5%;
-    }
+    
 
     .dropdown-menu{
         background-color: rgb(33,37,41);
