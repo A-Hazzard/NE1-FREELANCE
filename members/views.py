@@ -72,4 +72,13 @@ def register_user(request):
 def user_profile(request):
     user = request.user.username
     userEmail = request.user.email
-    return HttpResponse("<h1>User settings: Name: " + str(user)  + " </h1><p>Email: " + str(userEmail)  + "</p>")
+
+    context = {
+        'user' : user,
+        'userEmail': userEmail
+    }
+
+    if request.user.is_authenticated:
+        return render(request, 'members/profile.html', context)
+    else:
+        return redirect('home_page')
