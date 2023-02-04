@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(155, 154, 154);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100vh;
+  width: 100%;
+}
+main .left {
+  background-color: rgb(228, 228, 228);
+  flex: 1;
+}
+main .left .top {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 70%;
+}
+main .left .top .img-form {
+  width: 50%;
+  height: 50%;
+  border: 1px solid;
+  margin: 5% auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+main .left .top .img-form img {
+  width: 50%;
+  height: 50%;
+  border-radius: 50rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .left .top .display-info {
+  text-align: center;
+  font-size: 1.2rem;
+}
+main .right {
+  flex: 1;
+  background-color: rgb(222, 152, 23);
+}
+main .right form {
+  margin: 2% auto;
+  padding-left: 15%;
+}/*# sourceMappingURL=profile.css.map */

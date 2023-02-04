@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/members/profile.css' %}">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> <!--getbootstrap.com-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--Jquery-->
+    <script src="https://kit.fontawesome.com/18479e6558.js" crossorigin="anonymous"></script> <!--Font awesome for icons-->
+
+    <title>NE1-FREELANCE - User Profile</title>
+
+</head>
+
+
+
+<body>
+
+
+
+    {% include 'navbar.html' %}
+
+    <main>
+
+
+        <div class="left">
+
+
+                <div class="top">
+
+                    <form class="img-form" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+                            <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture">
+
+
+                        {% csrf_token %}
+
+                        {{form.as_p}}
+                        <button class="form-control" type="submit">Save Changes</button>
+
+                    </form>
+
+                            <div class="display-info">
+                                <p class="username">{{ user }}</p>
+                                <p class="userEmail">{{ userEmail }}</p>
+                            </div>
+                  
+                </div>
+
+
+                <div class="bottom"></div>
+        </div>
+
+
+
+
+
+        <div class="right">
+            <form action="{% url 'register' %}" method="POST">
+                <h1 class="signup-header">Change Profile Information</h1>
+                {% csrf_token %}
+    
+                 <input type="text" placeholder="......">
+                 <br><br>
+                 <input type="text" placeholder="......">
+                 <br><br>
+                 <input type="text" placeholder="......">
+                 <br><br>
+                 <input type="text" placeholder="......">
+                 <br><br>
+    
+                  <div class="col-12">
+                    <button class="btn btn-primary submit-btn" type="submit">Sign up</button>
+                  </div>
+            </form>
+    
+        </div>
+    </main>
+
+</body>
+</html>
