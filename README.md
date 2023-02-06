@@ -1,4 +1,4 @@
-# NE1-FREELANCE: A Professional Web-Based Freelancing Platform Built with Django
+# NE1-FREELANCE: A Professional Web-Based Freelancing Platform Built with Django (Not publicly hosted)
 ![image](https://user-images.githubusercontent.com/62683196/216718671-c5618604-ad2c-4723-b191-1feb053ed94e.png)
 
 NE1-FREELANCE is a feature-rich and user-friendly open source freelancing platform designed to make the job search process more efficient and accessible. Built with the robust and reliable Django framework, this project delivers a seamless experience for freelancers and employers alike.
