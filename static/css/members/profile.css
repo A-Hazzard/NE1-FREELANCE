@@ -27,7 +27,6 @@ main .left .top {
 main .left .top .img-form {
   width: 50%;
   height: 50%;
-  border: 1px solid;
   margin: 5% auto;
   overflow: hidden;
   display: flex;
@@ -41,7 +40,6 @@ main .left .top .img-form {
 main .left .top .img-form img {
   width: 50%;
   height: 50%;
-  border-radius: 50rem;
   -o-object-fit: cover;
      object-fit: cover;
 }

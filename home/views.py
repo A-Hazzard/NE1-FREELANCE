@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 
-
 from .models import Service
 from searchResults.models import JobCategory
 
