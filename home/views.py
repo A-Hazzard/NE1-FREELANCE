@@ -1,13 +1,7 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.contrib import messages
-from django.contrib.auth.hashers import make_password, check_password
-from django.db import IntegrityError
 
 from .models import Service
 from searchResults.models import JobCategory
-
-import datetime
 
 
 # Create your views here.

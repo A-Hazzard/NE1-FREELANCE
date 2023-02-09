@@ -35,4 +35,6 @@ urlpatterns = [
     path('createjob/', include("createjob.urls"), name = 'create_job'), #ne1freelance.com/createjob - Displays the job form
     path('about/',about_view.aboutus, name = 'about_us'), #ne1freelance.com/aboutus - Displays the about us page
     path('admin/', admin.site.urls), #ne1freelance.com/admin - Displays the admin page
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #used to link the static files ( css/js/images )
