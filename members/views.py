@@ -3,8 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.contrib import messages
 
-from .forms import RegisterUserForm
-from .forms import ProfilePictureForm
+from .forms import ProfileForm, RegisterUserForm, UpdateUserProfileForm
 from .models import Profile
 
 def login_user(request):
@@ -72,19 +71,25 @@ def user_profile(request):
     if request.user.is_authenticated:
         user = request.user.profile
         userEmail = request.user.email
-        form = ProfilePictureForm(instance=user)
+        form = ProfileForm(instance=user)
+        update_user_form = UpdateUserProfileForm(instance=user)
         
         if request.method == 'POST':
          # Gather the data inputted from the form
-            form = ProfilePictureForm(request.POST, request.FILES, instance=user)
+            form = ProfileForm(request.POST, request.FILES, instance=user)
+            update_user_form = UpdateUserProfileForm(request.POST, request.FILES, instance=user)
 
             if form.is_valid():
                 form.save()
+
+            if update_user_form.is_valid():
+                update_user_form.save()
 
         context = {
             'user' : user,
             'userEmail': userEmail,
             'form' : form,
+            'update_user_form' : update_user_form,
         }
         return render(request, 'members/profile.html', context)
 

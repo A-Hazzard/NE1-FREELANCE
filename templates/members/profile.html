@@ -21,39 +21,38 @@
 
 <body>
 
-
-
+    <!--Navbar inheritance-->
     {% include 'navbar.html' %}
-
+ {% if request.user.is_authenticated %}
     <main>
 
 
         <div class="left">
 
 
+            <!--Profile picture is stored here-->
                 <div class="top">
 
+                    <!--Profile picture upload form-->
                     <form class="img-form" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
                             <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture">
-
-
-                        {% csrf_token %}
-
-                        {{form.as_p}}
+                        {% csrf_token %}{{form.as_p}}
                         <button class="form-control" type="submit">Save Changes</button>
 
-                    </form>
+                    </form> <!--End form-->
 
                             <div class="display-info">
                                 <p class="username">{{ user }}</p>
                                 <p class="userEmail">{{ userEmail }}</p>
-                            </div>
+                            </div> <!--End display-info-->
                   
-                </div>
+                </div> <!--End top div-->
 
 
                 <div class="bottom"></div>
-        </div>
+
+
+        </div> <!--End left div-->
 
 
 
@@ -62,24 +61,32 @@
         <div class="right">
             <form action="{% url 'register' %}" method="POST">
                 <h1 class="signup-header">Change Profile Information</h1>
-                {% csrf_token %}
-    
-                 <input type="text" placeholder="......">
-                 <br><br>
-                 <input type="text" placeholder="......">
-                 <br><br>
-                 <input type="text" placeholder="......">
-                 <br><br>
-                 <input type="text" placeholder="......">
-                 <br><br>
+                {% csrf_token %}{{update_user_form.as_p}}
     
                   <div class="col-12">
-                    <button class="btn btn-primary submit-btn" type="submit">Sign up</button>
+                    <button class="btn btn-primary submit-btn" type="submit">Update Information</button>
                   </div>
-            </form>
+            </form><!--End form-->
     
-        </div>
+        </div><!--End right div-->
+
+
     </main>
 
+    <script>
+        $('form p:first label').text('Tell us about yourself')
+        $('form p:first textarea').text('{{request.user.profile.bio}}')
+        // $('form p:eq(1) label').text(null)
+        $('form p:eq(1) a').text(null)
+
+        $('form').on('submit', ()=>{
+            alert('Updated Profile')
+        })
+
+        
+
+
+    </script>
+{% endif  %}
 </body>
 </html>
