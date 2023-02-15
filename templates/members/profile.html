@@ -21,65 +21,83 @@
 
 <body>
 
-
-
+    <!--Navbar inheritance-->
     {% include 'navbar.html' %}
-
+ {% if request.user.is_authenticated %}
     <main>
 
 
         <div class="left">
 
 
+            <!--Profile picture is stored here-->
                 <div class="top">
 
-                    <form class="img-form" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+                    <!--Profile picture upload form-->
+                    <form class="img-form" method="POST" enctype="multipart/form-data">
                             <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture">
+                            <span class="username">{{ request.user.username }}</span>
 
 
-                        {% csrf_token %}
+                            {% if form.errors %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    {{ form.errors.as_text }}</strong> 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div> 
+                            {% endif %}
 
-                        {{form.as_p}}
-                        <button class="form-control" type="submit">Save Changes</button>
 
-                    </form>
+                        {% csrf_token %}{{form.as_p}}
+                        <button class="btn btn-primary form-control" type="submit">Save Changes</button>
 
-                            <div class="display-info">
-                                <p class="username">{{ user }}</p>
-                                <p class="userEmail">{{ userEmail }}</p>
-                            </div>
+                    </form> <!--End form-->
+
                   
-                </div>
+                </div> <!--End top div-->
 
 
                 <div class="bottom"></div>
-        </div>
+
+
+        </div> <!--End left div-->
 
 
 
 
 
         <div class="right">
-            <form action="{% url 'register' %}" method="POST">
+            <form class="update-profile-form" method="POST">
                 <h1 class="signup-header">Change Profile Information</h1>
-                {% csrf_token %}
-    
-                 <input type="text" placeholder="......">
-                 <br><br>
-                 <input type="text" placeholder="......">
-                 <br><br>
-                 <input type="text" placeholder="......">
-                 <br><br>
-                 <input type="text" placeholder="......">
-                 <br><br>
+                {% if update_user_form.errors %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        {{ update_user_form.errors.as_text }}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div> 
+                {% endif %}
+                
+                {% csrf_token %}{{update_user_form.as_p}}
     
                   <div class="col-12">
-                    <button class="btn btn-primary submit-btn" type="submit">Sign up</button>
+                    <button class="btn btn-primary submit-btn" type="submit">Update Information</button>
                   </div>
-            </form>
+            </form><!--End form-->
     
-        </div>
+        </div><!--End right div-->
+
+
     </main>
 
+    <script>
+        $('.img-form p:first label').text('Tell us about yourself')
+        $('.img-form p:first textarea').text('{{request.user.profile.bio}}')
+        // $('form p:eq(1) label').text(null)
+        $('.update-profile-form p:eq(1) a').text(null)
+
+    </script>
+{% endif  %}
 </body>
 </html>
