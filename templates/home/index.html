@@ -67,7 +67,7 @@
         <form class="search_form" method="GET" action="{% url 'search_jobs' %}">
             {% csrf_token %}
             <input class="search" type="text" placeholder="Search for job..." name="search" required>
-            <select name="category" class="category">
+            <select title = "category" class="category">
                 <option value="">All categories</option>
                 {% for category in job_category %}
                     <!-- for each category in the categories table stored in the database, 

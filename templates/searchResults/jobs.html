@@ -100,7 +100,7 @@
                             <form method="GET" action="{% url 'search_jobs' %}?query={{ search_term }}">
                                 {% csrf_token %}
                                 <input class="search" type="text" placeholder="Search for job..." name="search" required>
-                                <select name="category">
+                                <select title = "category" name="category">
                                     <option value="">All categories</option>
                                     {% for category in categories %}
 
@@ -159,7 +159,7 @@
                                         <form method="GET" action="{% url 'search_jobs' %}?query={{ search_term }}">
                                             {% csrf_token %}
                                             <input class="search" type="text" placeholder="Search for job..." name="search" required>
-                                            <select name="category">
+                                            <select title = "category" name="category">
                                                 <option value="">All categories</option>
                                                 {% for category in categories %}
             

@@ -18,43 +18,8 @@
 </head>
 <body>
 
-
-    <!-- <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a> -->
-
- <!-- {% if user.is_authenticated %} 
-    
- <nav class="logged_in-navbar">
-    <ul class="nav nav-tabs" style="margin-left: 75%;">
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-            <i class="fa-solid fa-circle {% if user.is_active %}active-status{% endif %}"></i>{{user.username}}
-        </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'job_form' %}">Create job</a></li>
-            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-          </ul>
-        </li>
-            
-            <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-        
-      </ul>
- </nav>
-{% else %}
- <nav class="logged_out-navbar">
-    <ul class="nav nav-tabs" style="margin-left: 75%;">
-        <li class="nav-item"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                 <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login/Signup</a></li>
-     </ul>
- </nav>
- 
-{% endif %} -->
-
 {% include 'navbar.html' %}
+
             <main>
                     <div class="top">
                         {% if search_term %}
@@ -83,7 +48,7 @@
                         <form class="search-form row g-3" method="GET" action="{% url 'search_jobs' %}?query={{ search_term }}">
                             {% csrf_token %}
                             <input class="search-input-field form-control" type="text" placeholder="Search for job..." name="search" required>
-                            <select class="form-select select-input-field" name="category">
+                            <select class="form-select select-input-field" title="category" name="category">
                                 <option value="">All categories</option>
                                 {% for category in categories %}
 
@@ -110,31 +75,31 @@
                         {% endif %}
 
                         {% if jobs %}
-                            <!-- flex-container for the job listing -->
+                            <!--flex-container for the job listing -->
                             <div class="job-list">
                                 <!--For each job in the database, create a job card for them with a:
                                     1) Header
                                     2) Description
                                     3) Price
-                                    4) Thumbnail (Coming soon)
-                                -->
+                                    4) Thumbnail (Coming soon) -->
+                                
                                 {% for job in jobs %}
-                                    <!-- container for each job item -->
+                                    <!--container for each job item -->
                                     <div class="job-card">
-                                        <!--Display the job's thumbnail-->
+                                       <!--Display the job's thumbnail-->
                                         <div class="thumbnail-container">
                                             <img src="/media/{{ job.thumbnail }}" alt="">
                                         </div>
 
                                         <div class="details">
-                                                    <!-- display the job title -->
+                                            <!--display the job title -->
                                                 <h3 class="title">{{ job.title }}</h3>
                                                 
                                                 <p class="username"><b style="margin-right: 1%;">User:</b> {{ job.user.username }}</p>
-                                                <!-- display the job description -->
+                                                <!--display the job description--> 
                                                 <p class="description">{{ job.description }}</p>
-                                                <!-- display the job price -->
-                                                <!-- display the job category -->
+                                                <!--display the job price -->
+                                                        display the job category -->
                                                 <p class="category"><b>Type:</b> {{ job.category }}</p>
 
                                                 <hr style="background-color: rgb(224, 224, 224);">
